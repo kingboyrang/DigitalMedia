@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  BasicTabBarController.h
 //  DigitalMedia
 //
 //  Created by aJia on 2014/5/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface BasicTabBarController : UITabBarController
 
 @end
