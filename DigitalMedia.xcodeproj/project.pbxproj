@@ -41,6 +41,8 @@
 		0150B94419261726005DEAAC /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0150B94319261726005DEAAC /* libxml2.dylib */; };
 		0150B948192619B3005DEAAC /* AdminURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0150B947192619B3005DEAAC /* AdminURL.m */; };
 		0150B94B19261E98005DEAAC /* PushToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 0150B94A19261E98005DEAAC /* PushToken.m */; };
+		0150B94E192621EC005DEAAC /* ApnsToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 0150B94D192621EC005DEAAC /* ApnsToken.m */; };
+		0150B9511926231D005DEAAC /* FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0150B9501926231D005DEAAC /* FileHelper.m */; };
 		017D2EF91925B1BC00E1CC80 /* UIButton+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 017D2EF81925B1BC00E1CC80 /* UIButton+TPCategory.m */; };
 		017D2F051925B44E00E1CC80 /* TKMenuItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 017D2F041925B44E00E1CC80 /* TKMenuItemCell.m */; };
 		017D2F081925C3B000E1CC80 /* OrganViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 017D2F071925C3AF00E1CC80 /* OrganViewController.m */; };
@@ -146,6 +148,10 @@
 		0150B947192619B3005DEAAC /* AdminURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminURL.m; sourceTree = "<group>"; };
 		0150B94919261E98005DEAAC /* PushToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushToken.h; sourceTree = "<group>"; };
 		0150B94A19261E98005DEAAC /* PushToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushToken.m; sourceTree = "<group>"; };
+		0150B94C192621EC005DEAAC /* ApnsToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApnsToken.h; sourceTree = "<group>"; };
+		0150B94D192621EC005DEAAC /* ApnsToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApnsToken.m; sourceTree = "<group>"; };
+		0150B94F1926231D005DEAAC /* FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelper.h; sourceTree = "<group>"; };
+		0150B9501926231D005DEAAC /* FileHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHelper.m; sourceTree = "<group>"; };
 		017D2EF71925B1BC00E1CC80 /* UIButton+TPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+TPCategory.h"; sourceTree = "<group>"; };
 		017D2EF81925B1BC00E1CC80 /* UIButton+TPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+TPCategory.m"; sourceTree = "<group>"; };
 		017D2F031925B44E00E1CC80 /* TKMenuItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKMenuItemCell.h; sourceTree = "<group>"; };
@@ -370,6 +376,8 @@
 				0150B94A19261E98005DEAAC /* PushToken.m */,
 				0150B946192619B3005DEAAC /* AdminURL.h */,
 				0150B947192619B3005DEAAC /* AdminURL.m */,
+				0150B94C192621EC005DEAAC /* ApnsToken.h */,
+				0150B94D192621EC005DEAAC /* ApnsToken.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -529,6 +537,8 @@
 		01E8E94A1924BFFB0071BC5D /* Uitils */ = {
 			isa = PBXGroup;
 			children = (
+				0150B94F1926231D005DEAAC /* FileHelper.h */,
+				0150B9501926231D005DEAAC /* FileHelper.m */,
 				0150B8EF19260E79005DEAAC /* AppHelper.h */,
 				0150B8F019260E79005DEAAC /* AppHelper.m */,
 				01E8E94B1924C0070071BC5D /* Global.h */,
@@ -705,12 +715,14 @@
 				01E8E96F192595B90071BC5D /* CountyZoneViewController.m in Sources */,
 				0150B8D21925F4C1005DEAAC /* TKLabelCell.m in Sources */,
 				01E8E9231924AF680071BC5D /* AnimateErrorView.m in Sources */,
+				0150B9511926231D005DEAAC /* FileHelper.m in Sources */,
 				01E8E8EF1924AECD0071BC5D /* AppDelegate.m in Sources */,
 				017D2EF91925B1BC00E1CC80 /* UIButton+TPCategory.m in Sources */,
 				0150B9161926103C005DEAAC /* NSData+MKBase64.m in Sources */,
 				01E8E972192595D00071BC5D /* AboutUsViewController.m in Sources */,
 				01E8E975192595E90071BC5D /* FavoritesViewController.m in Sources */,
 				01E8E9551924C4410071BC5D /* BasicTabBarController.m in Sources */,
+				0150B94E192621EC005DEAAC /* ApnsToken.m in Sources */,
 				0150B91C1926103C005DEAAC /* MKNetworkOperation.m in Sources */,
 				0150B930192612A0005DEAAC /* CountyZoneTopView.m in Sources */,
 				017D2F051925B44E00E1CC80 /* TKMenuItemCell.m in Sources */,

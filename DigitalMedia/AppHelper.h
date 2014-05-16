@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <sys/xattr.h>
 @interface AppHelper : NSObject
-+(void)openUrl:(NSString*)url;
++ (void)openUrl:(NSString*)url;
++ (void)updateAccess;
 @end

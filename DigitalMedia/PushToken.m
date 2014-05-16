@@ -8,6 +8,7 @@
 
 #import "PushToken.h"
 #import "SRMNetworkEngine.h"
+#import "ApnsToken.h"
 @implementation PushToken
 -(NSString*)XmlSerialize{
     NSMutableString *xml=[NSMutableString stringWithFormat:@"<?xml version=\"1.0\"?>"];
@@ -24,27 +25,30 @@
     result=[result stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
     return result;
 }
-+(void)registerTokenWithDeivceId:(NSString*)deviceId{
-    PushToken *push=[[PushToken alloc] init];
-    push.GUID=deviceId;
-    push.UniqueCode=[NSString createGUID];
-    push.AppCode=@"ios.app.com.eland2.media";
-    push.AppName=@"IOS數位媒體";
-    push.AppType=@"ios";
-    push.Flatbed=UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad?@"1":@"2";
-    
-    ServiceArgs *args=[[ServiceArgs alloc] init];
-    args.serviceURL=PushWebServiceUrl;
-    args.serviceNameSpace=PushWebServiceNameSpace;
-    args.methodName=@"Register";
-    args.soapParams=[NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:[push XmlSerialize],@"xml", nil], nil];
-    
-    SRMNetworkEngine *engine=[[SRMNetworkEngine alloc] initWithHostName:args.hostName];
-    [engine requestWithArgs:args success:^(MKNetworkOperation *completedOperation) {
++(void)registerToken{
+    ApnsToken *apns=[ApnsToken unarchiverApnsToken];
+    if (apns.AppToken&&[apns.AppToken length]>0) {
+        PushToken *push=[[PushToken alloc] init];
+        push.GUID=apns.AppToken;
+        push.UniqueCode=[NSString createGUID];
+        push.AppCode=@"ios.app.com.eland2.media";
+        push.AppName=@"IOS數位媒體";
+        push.AppType=@"ios";
+        push.Flatbed=UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad?@"1":@"2";
         
-    } failure:^(MKNetworkOperation *completedOperation, NSError *error) {
+        ServiceArgs *args=[[ServiceArgs alloc] init];
+        args.serviceURL=PushWebServiceUrl;
+        args.serviceNameSpace=PushWebServiceNameSpace;
+        args.methodName=@"Register";
+        args.soapParams=[NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:[push XmlSerialize],@"xml", nil], nil];
         
-    }];
+        SRMNetworkEngine *engine=[[SRMNetworkEngine alloc] initWithHostName:args.hostName];
+        [engine requestWithArgs:args success:^(MKNetworkOperation *completedOperation) {
+            
+        } failure:^(MKNetworkOperation *completedOperation, NSError *error) {
+            
+        }];
+    }
 }
 -(NSString*)getPropertyValue:(NSString*)field{
     if (field==nil||[field length]==0) {

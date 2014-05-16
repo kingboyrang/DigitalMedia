@@ -8,57 +8,14 @@
 
 #import "AppDelegate.h"
 #import "BasicTabBarController.h"
-#import "SRMNetworkEngine.h"
-#import "XmlParseHelper.h"
-#import "AdminURL.h"
-#import "PushToken.h"
+#import "AppHelper.h"
 @implementation AppDelegate
 
-- (void)updateAccess{
-    ServiceArgs *args=[[ServiceArgs alloc] init];
-    args.serviceURL=DataAccessURL;
-    args.httpWay=ServiceHttpPost;
-    
-    SRMNetworkEngine *engine=[[SRMNetworkEngine alloc] initWithHostName:args.hostName];
-    [engine requestWithArgs:args success:^(MKNetworkOperation *completedOperation) {
-        NSString *xml=[completedOperation.responseString stringByReplacingOccurrencesOfString:@"xmlns=\"AdminURL[]\"" withString:@""];
-        XmlParseHelper *parse=[[XmlParseHelper alloc] initWithData:xml];
-        NSArray *source=[parse selectNodes:@"//AdminURL" className:@"AdminURL"];
-        NSMutableArray *arr=[NSMutableArray arrayWithArray:DataServicesSource];
-        
-        
-        if (source&&[source count]>0) {
-            NSString *url2=@"";
-            for (AdminURL *item in source) {
-                if ([item.name isEqualToString:@"elandmcwebserviceurl"]&&[item.url length]>0) {
-                    arr[0]=[item.url Trim];
-                }
-                if ([item.name isEqualToString:@"pushsadminurl"]&&[item.url length]>0) {
-                    url2=[item.url Trim];
-                }
-            }
-            if ([url2 length]>0) {
-                if (![url2 isEqualToString:arr[1]]) {
-                    arr[1]=url2;
-                    //重新注册
-                    
-                }
-            }
-            [arr writeToFile:DataWebPath atomically:YES];
-        }
-
-        
-        
-    } failure:^(MKNetworkOperation *completedOperation, NSError *error) {
-         NSLog(@"error=%@",error.description);
-    }];
-    
-}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    [self updateAccess];
-    
+
+    [AppHelper updateAccess];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // Override point for customization after application launch.

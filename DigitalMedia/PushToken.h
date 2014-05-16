@@ -16,5 +16,5 @@
 @property(nonatomic,copy) NSString *Flatbed;
 -(NSString*)XmlSerialize;
 -(NSString*)getPropertyValue:(NSString*)field;
-+(void)registerTokenWithDeivceId:(NSString*)deviceId;
++(void)registerToken;
 @end
