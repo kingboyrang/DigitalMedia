@@ -29,6 +29,15 @@
     
     CountyZoneTopView *topView=[[CountyZoneTopView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 48)];
     [self.view addSubview:topView];
+    
+    CGFloat h=self.view.frame.size.height-[self topHeight]-48;
+    _refrshTable=[[PullingRefreshTableView alloc] initWithFrame:CGRectMake(0, 48, self.view.frame.size.width,h) pullingDelegate:self];
+    _refrshTable.delegate=self;
+    _refrshTable.dataSource=self;
+    [_refrshTable setAutoresizesSubviews:YES];
+    [_refrshTable setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
+    [self.view addSubview:_refrshTable];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -37,16 +46,53 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)initPageParams{
+    curPage=0;
+    pageSize=DeviceIsPad?20:10;
+    maxPage=0;
 }
-*/
+-(void)loadData{
+    if (self.refreshing) {
+        self.refreshing=NO;
+    }
+    if (![self hasNewWork]) {
+        //_refrshTable.reachedTheEnd  = NO;
+        //[_refrshTable tableViewDidFinishedLoadingWithMessage:@"請檢查網絡連接.."];
+        [self showErrorNetWorkNotice:nil];
+        return;
+    }
+    if (curPage!=maxPage) {
+        curPage++;
+        if (curPage>=maxPage) {
+            curPage=maxPage;
+        }
+        //[self loadSourceData];//加载数据
+    }else{
+        [_refrshTable tableViewDidFinishedLoadingWithMessage:@"沒有了哦.."];
+        _refrshTable.reachedTheEnd  = YES;
+        
+    }
+}
+#pragma mark - PullingRefreshTableViewDelegate
+//下拉加载
+- (void)pullingTableViewDidStartRefreshing:(PullingRefreshTableView *)tableView{
+    self.refreshing = YES;
+    [self performSelector:@selector(loadData) withObject:nil afterDelay:1.f];
+}
+
+//上拉加载
+- (void)pullingTableViewDidStartLoading:(PullingRefreshTableView *)tableView{
+    [self performSelector:@selector(loadData) withObject:nil afterDelay:1.f];
+}
+
+#pragma mark - Scroll
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [_refrshTable tableViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    [_refrshTable tableViewDidEndDragging:scrollView];
+}
+
 
 @end
