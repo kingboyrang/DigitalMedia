@@ -51,6 +51,7 @@
     self.movieDisplay.active = NO;
     self.movieDisplay.searchResultsDataSource = self;
     self.movieDisplay.searchResultsDelegate = self;
+    self.movieDisplay.searchResultsTitle=@"";
     [self.view addSubview:self.mySearchBar];
     
     CountyZoneTopView *topView=[[CountyZoneTopView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 48)];
@@ -235,6 +236,7 @@
     if (![self.keyWord isEqualToString:searchBar.text]) {
         self.keyWord=searchBar.text;
         searchBar.text=@"";
+        self.movieDisplay.active=NO;
         [self loadSourceData];
     }
 }
