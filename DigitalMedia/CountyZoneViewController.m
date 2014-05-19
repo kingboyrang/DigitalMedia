@@ -11,8 +11,9 @@
 #import "SRMNetworkEngine.h"
 #import "UIBarButtonItem+TPCategory.h"
 #import "UIImage+TPCategory.h"
-@interface CountyZoneViewController ()<UISearchBarDelegate>
-@property (nonatomic,strong) UISearchBar *mySearchBar;
+#import "DMSearchBar.h"
+@interface CountyZoneViewController ()<UISearchBarDelegate,UISearchDisplayDelegate>
+@property (nonatomic,strong) DMSearchBar *mySearchBar;
 @property (nonatomic,strong) UISearchDisplayController *movieDisplay;
 @end
 
@@ -34,24 +35,15 @@
     self.navigationItem.rightBarButtonItem=[UIBarButtonItem barButtonWithImage:@"search.png" target:self action:@selector(buttonSearchClick:) forControlEvents:UIControlEventTouchUpInside];
     
     
-    self.mySearchBar = [[UISearchBar alloc] initWithFrame:CGRectZero];//CGRectMake(0, 0, self.view.bounds.size.width, 40)
+    self.mySearchBar = [[DMSearchBar alloc] initWithFrame:CGRectZero];//CGRectMake(0, 0, self.view.bounds.size.width, 40)
     self.mySearchBar.delegate = self;
-    [self.mySearchBar setPlaceholder:@"輸入關鍵字"];
-    for (UIView *subview in self.mySearchBar.subviews)
-    {
-        if ([subview isKindOfClass:NSClassFromString(@"UISearchBarBackground")])
-        {
-            [subview removeFromSuperview];
-            break;
-        }
-    }
-    self.mySearchBar.backgroundColor=[UIColor clearColor];
+    [self.mySearchBar removeBackgroud];
     
     self.movieDisplay = [[UISearchDisplayController alloc]initWithSearchBar:self.mySearchBar contentsController:self];
     self.movieDisplay.active = NO;
     self.movieDisplay.searchResultsDataSource = self;
     self.movieDisplay.searchResultsDelegate = self;
-    self.movieDisplay.searchResultsTitle=@"";
+    self.movieDisplay.delegate=self;
     [self.view addSubview:self.mySearchBar];
     
     CountyZoneTopView *topView=[[CountyZoneTopView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 48)];
@@ -79,6 +71,11 @@
     
  
     // Do any additional setup after loading the view.
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self initPageParams];
+    [self.refrshTable launchRefreshing];
 }
 #pragma mark - Notifications
 - (void)handleKeyboardWillShowHideNotification:(NSNotification *)notification
@@ -135,27 +132,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (void)buttonSearchClick:(UIButton*)btn{
-    for (UIView *subview in self.mySearchBar.subviews)
-    {
-        if ([subview isKindOfClass:[UITextField class]])
-        {
-            UITextField *field=(UITextField*)subview;
-            [field becomeFirstResponder];
-            break;
-        }
-    }
-    if (IOSVersion>=7.0) {
-        UIView *searchV = [[self.mySearchBar subviews] lastObject];
-        for (id v in searchV.subviews) {
-            if ([v isKindOfClass:[UITextField class]])
-            {
-                UITextField *field=(UITextField*)v;
-               [field becomeFirstResponder];
-                break;
-            }
-        }
-    }
-    
+    [self.mySearchBar.searchField becomeFirstResponder];
 }
 -(void)initPageParams{
     curPage=0;
@@ -211,34 +188,25 @@
     }];
     
 }
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
+    UITableView *tableView1 = self.searchDisplayController.searchResultsTableView;
+    
+    for( UIView *subview in tableView1.subviews ) {
+        if( [subview class] == [UILabel class] ) {
+            UILabel *lbl = (UILabel*)subview; // sv changed to subview.
+            lbl.text = @"";
+        }
+    }
+    tableView1.alpha=0.0;
+    return YES;
+}
 #pragma mark - UISearchBarDelegate Methods
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    for (UIView *subview in self.mySearchBar.subviews)
-    {
-        if ([subview isKindOfClass:[UITextField class]])
-        {
-            UITextField *field=(UITextField*)subview;
-            [field resignFirstResponder];
-            break;
-        }
-    }
-    if (IOSVersion>=7.0) {
-        UIView *searchV = [[self.mySearchBar subviews] lastObject];
-        for (id v in searchV.subviews) {
-            if ([v isKindOfClass:[UITextField class]])
-            {
-                UITextField *field=(UITextField*)v;
-                [field resignFirstResponder];
-                break;
-            }
-        }
-    }
-    if (![self.keyWord isEqualToString:searchBar.text]) {
-        self.keyWord=searchBar.text;
-        searchBar.text=@"";
-        self.movieDisplay.active=NO;
-        [self loadSourceData];
-    }
+    [self.mySearchBar.searchField resignFirstResponder];
+    self.keyWord=searchBar.text;
+    searchBar.text=@"";
+    self.movieDisplay.active=NO;
+    [self loadSourceData];
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar{
     self.mySearchBar.frame=CGRectZero;
@@ -247,27 +215,7 @@
     self.refrshTable.frame=r;
 }
 -(BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
-    searchBar.showsCancelButton=YES;
-    for (id cc in searchBar.subviews) {
-        if([cc isKindOfClass:[UIButton class]]){
-            UIButton *btn=(UIButton *)cc;
-            [btn setTitle:@"取消" forState:UIControlStateNormal];
-            UIImage *img=[UIImage createImageWithColor:[UIColor colorFromHexRGB:@"5094a8"] imageSize:CGSizeMake(44, 35)];
-            UIImage *roundImg=[UIImage createRoundedRectImage:img size:CGSizeMake(44, 35) radius:5];
-            [btn setBackgroundImage:roundImg forState:UIControlStateNormal];
-            break;
-        }
-        if ([cc isKindOfClass:[UIView class]]) {
-            UIView *v=(UIView*)cc;
-            for (id item in v.subviews) {
-                if([item isKindOfClass:[UIButton class]]){
-                    UIButton *btn=(UIButton *)item;
-                    [btn setTitle:@"取消" forState:UIControlStateNormal];
-                    break;
-                }
-            }
-        }
-    }
+    [self.mySearchBar setCancelButtonDefaultTitle];
     return YES;
 }
 #pragma UITableViewDataSource

@@ -6,6 +6,8 @@
 //  Copyright (c) 2013年 rang. All rights reserved.
 //
 
+//http://60.251.51.217/Pushs.Admin/WebServices/Push.asmx
+
 #define DataAccessURL @"http://60.251.51.217/Pushs.Admin/WebServices/CasesAdminURL.aspx?get=elandmc"
 
 #define DataWebPath [[NSBundle mainBundle] pathForResource:@"Config" ofType:@"plist"]

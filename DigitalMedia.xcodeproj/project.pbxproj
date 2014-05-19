@@ -79,6 +79,7 @@
 		01E8E972192595D00071BC5D /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E8E971192595D00071BC5D /* AboutUsViewController.m */; };
 		01E8E975192595E90071BC5D /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E8E974192595E90071BC5D /* FavoritesViewController.m */; };
 		01E8E978192596000071BC5D /* RelevantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E8E977192596000071BC5D /* RelevantViewController.m */; };
+		26681D2F192A1BB200874C97 /* DMSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 26681D2E192A1BB200874C97 /* DMSearchBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +214,8 @@
 		01E8E974192595E90071BC5D /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
 		01E8E976192596000071BC5D /* RelevantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelevantViewController.h; sourceTree = "<group>"; };
 		01E8E977192596000071BC5D /* RelevantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelevantViewController.m; sourceTree = "<group>"; };
+		26681D2D192A1BB200874C97 /* DMSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSearchBar.h; sourceTree = "<group>"; };
+		26681D2E192A1BB200874C97 /* DMSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSearchBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -518,6 +521,8 @@
 				01E8E9211924AF680071BC5D /* BasicViewController.m */,
 				01E8E9531924C4410071BC5D /* BasicTabBarController.h */,
 				01E8E9541924C4410071BC5D /* BasicTabBarController.m */,
+				26681D2D192A1BB200874C97 /* DMSearchBar.h */,
+				26681D2E192A1BB200874C97 /* DMSearchBar.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -729,6 +734,7 @@
 				01E8E8EF1924AECD0071BC5D /* AppDelegate.m in Sources */,
 				017D2EF91925B1BC00E1CC80 /* UIButton+TPCategory.m in Sources */,
 				0150B9161926103C005DEAAC /* NSData+MKBase64.m in Sources */,
+				26681D2F192A1BB200874C97 /* DMSearchBar.m in Sources */,
 				01E8E972192595D00071BC5D /* AboutUsViewController.m in Sources */,
 				01E8E975192595E90071BC5D /* FavoritesViewController.m in Sources */,
 				01E8E9551924C4410071BC5D /* BasicTabBarController.m in Sources */,
