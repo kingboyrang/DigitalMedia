@@ -240,7 +240,7 @@
 - (void) showErrorNetWorkNotice:(void (^)(void))dismissError{
     
     [self showErrorViewWithHide:^(AnimateErrorView *errorView) {
-        errorView.labelTitle.text=@"網絡未連接,請檢查!";
+        errorView.labelTitle.text=@"請檢查網絡連接..";
     } completed:nil];
 }
 - (void) showMessageWithTitle:(NSString*)title{

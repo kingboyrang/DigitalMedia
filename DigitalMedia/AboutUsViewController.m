@@ -9,6 +9,7 @@
 #import "AboutUsViewController.h"
 #import "TKLabelCell.h"
 #import "TKLabelLabelCell.h"
+#import "UIBarButtonItem+TPCategory.h"
 @interface AboutUsViewController ()
 
 @end
@@ -27,6 +28,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationItem.rightBarButtonItem=[UIBarButtonItem barButtonWithTitle:@"1030509" target:self action:nil forControlEvents:UIControlEventTouchUpInside];
+    
     CGRect r=self.view.bounds;
     r.size.height-=[self topHeight];
     _menuTable=[[UITableView alloc] initWithFrame:r style:UITableViewStylePlain];

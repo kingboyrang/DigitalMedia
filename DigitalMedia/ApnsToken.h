@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface ApnsToken : NSObject<NSCoding>
+@property(nonatomic,copy) NSString *UID;
 @property(nonatomic,copy) NSString *AppToken;
 @property(nonatomic,assign) BOOL flags;
 +(ApnsToken*)unarchiverApnsToken;

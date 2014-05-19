@@ -425,7 +425,7 @@
         _msgLabel.frame = rect;
         _msgLabel.font = [UIFont systemFontOfSize:18.f];
         _msgLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        _msgLabel.backgroundColor = [UIColor colorFromHexRGB:@"c94018"];
+        _msgLabel.backgroundColor = [UIColor redColor];
         _msgLabel.textColor=[UIColor whiteColor];
         _msgLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_msgLabel];    

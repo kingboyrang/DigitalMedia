@@ -19,14 +19,13 @@
 }
 + (id)barButtonWithTitle:(NSString*)title target:(id)sender action:(SEL)action forControlEvents:(UIControlEvents)controlEvents
 {
-    CGSize size=[title textSize:[UIFont systemFontOfSize:16] withWidth:320];
+    CGSize size=[title textSize:defaultSDeviceFont withWidth:320];
     UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame=CGRectMake(0, 0, size.width, size.height);
     [btn setTitle:title forState:UIControlStateNormal];
-    [btn setTitleColor:[UIColor colorFromHexRGB:@"1e313f"] forState:UIControlStateNormal];
-    [btn setTitleColor:[UIColor colorFromHexRGB:@"2f3029"] forState:UIControlStateHighlighted];
-    btn.titleLabel.font=[UIFont systemFontOfSize:16];
-    btn.showsTouchWhenHighlighted=YES;
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    //[btn setTitleColor:[UIColor colorFromHexRGB:@"2f3029"] forState:UIControlStateHighlighted];
+    btn.titleLabel.font=defaultSDeviceFont;
     [btn addTarget:sender action:action forControlEvents:controlEvents];
     return btn;
 }

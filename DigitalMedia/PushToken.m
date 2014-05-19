@@ -30,7 +30,7 @@
     if (apns.AppToken&&[apns.AppToken length]>0) {
         PushToken *push=[[PushToken alloc] init];
         push.GUID=apns.AppToken;
-        push.UniqueCode=[NSString createGUID];
+        push.UniqueCode=apns.UID;
         push.AppCode=@"ios.app.com.eland2.media";
         push.AppName=@"IOS數位媒體";
         push.AppType=@"ios";

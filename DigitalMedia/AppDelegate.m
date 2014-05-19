@@ -9,15 +9,17 @@
 #import "AppDelegate.h"
 #import "BasicTabBarController.h"
 #import "AppHelper.h"
+#import "ApnsToken.h"
+#import "PushToken.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-
+    //向apns注册
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge |UIRemoteNotificationTypeSound)];
+    //更新访问接口
     [AppHelper updateAccess];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     BasicTabBarController *tabbar=[[BasicTabBarController alloc] init];
@@ -52,5 +54,44 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+#pragma mark - APNS 回傳結果
+// 成功取得設備編號token
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    
+    NSString *deviceId = [[deviceToken description]
+                          substringWithRange:NSMakeRange(1, [[deviceToken description] length]-2)];
+    deviceId = [deviceId stringByReplacingOccurrencesOfString:@" " withString:@""];
+    deviceId = [deviceId stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    
+    ApnsToken *apns=[ApnsToken unarchiverApnsToken];
+    if (![apns.AppToken isEqualToString:deviceId]) {
+        apns.AppToken=deviceId;
+        [apns save];
+    }
+    //注册推送
+    [PushToken registerToken];
+    
+}
+//获取接收的推播信息
+- (void) application:(UIApplication *) app didReceiveRemoteNotification:(NSDictionary *) userInfo
+{
+    //app.applicationIconBadgeNumber=0;
+    [self pushHandler:userInfo];
+}
 
+// 或無法取得設備編號token
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    //表示信息推播失败
+}
+//推播处理
+-(void)pushHandler:(NSDictionary*)userInfo{
+    if ([[userInfo objectForKey:@"aps"] objectForKey:@"alert"]!=nil) {
+        NSString *post=[userInfo objectForKey:@"guid"];
+        NSDictionary  *dic=[NSDictionary dictionaryWithObjectsAndKeys:post,@"guid", nil];
+        
+        NSNotification *notification = [NSNotification notificationWithName:@"pushDetail" object:nil userInfo:dic];
+        [[NSNotificationCenter defaultCenter] performSelectorOnMainThread:@selector(postNotification:) withObject:notification waitUntilDone:NO];
+    }
+}
 @end
