@@ -62,7 +62,7 @@
     if ([_label.text length]==0) {
         r.size = CGSizeMake(72,27);
     }else{
-        CGSize size=[_label.text textSize:defaultSDeviceFont withWidth:self.frame.size.width-20];
+        CGSize size=[_label.text textSize:_label.font withWidth:self.frame.size.width-20];
         r.size=size;
         r.origin.y=(self.frame.size.height-size.height)/2;
     }

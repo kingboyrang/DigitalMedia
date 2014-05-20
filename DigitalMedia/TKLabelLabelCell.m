@@ -46,14 +46,14 @@
 	
 	CGRect r = CGRectInset(self.contentView.bounds, 10, 10);
     r.origin.x=10;
-    CGSize size=[_labName.text textSize:defaultSDeviceFont withWidth:r.size.width];
+    CGSize size=[_labName.text textSize:_labName.font withWidth:r.size.width];
     r.size=size;
     r.origin.y=(self.frame.size.height-size.height)/2;
 	_labName.frame = r;
     
     CGFloat leftX=r.origin.x+r.size.width+2;
     CGFloat w=self.frame.size.width-leftX-5;
-    size=[_labDetail.text textSize:defaultSDeviceFont withWidth:w];
+    size=[_labDetail.text textSize:_labDetail.font withWidth:w];
     _labDetail.frame=CGRectMake(leftX,(self.frame.size.height-size.height)/2, size.width, size.height);
 }
 

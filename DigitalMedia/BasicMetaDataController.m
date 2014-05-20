@@ -1,24 +1,22 @@
 //
-//  CountyZoneViewController.m
+//  BasicMetaDataViewController.m
 //  DigitalMedia
 //
-//  Created by aJia on 2014/5/16.
+//  Created by aJia on 2014/5/20.
 //  Copyright (c) 2014年 lz. All rights reserved.
 //
 
-#import "CountyZoneViewController.h"
-#import "CountyZoneTopView.h"
-#import "ASIServiceHTTPRequest.h"
-#import "UIBarButtonItem+TPCategory.h"
-#import "UIImage+TPCategory.h"
+#import "BasicMetaDataController.h"
 #import "DMSearchBar.h"
+#import "UIBarButtonItem+TPCategory.h"
 #import "TKMetaDataCell.h"
-@interface CountyZoneViewController ()<UISearchBarDelegate,UISearchDisplayDelegate>
+#import "ASIServiceHTTPRequest.h"
+@interface BasicMetaDataController ()<UISearchBarDelegate,UISearchDisplayDelegate>
 @property (nonatomic,strong) DMSearchBar *mySearchBar;
 @property (nonatomic,strong) UISearchDisplayController *movieDisplay;
 @end
 
-@implementation CountyZoneViewController
+@implementation BasicMetaDataController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,7 +30,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.metaHelper=[[SearchMetaDataHelper alloc] init];
     
     self.navigationItem.rightBarButtonItem=[UIBarButtonItem barButtonWithImage:@"search.png" target:self action:@selector(buttonSearchClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -49,13 +46,9 @@
     self.movieDisplay.delegate=self;
     [self.view addSubview:self.mySearchBar];
     
-    CountyZoneTopView *topView=[[CountyZoneTopView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 48)];
-    topView.tag=100;
-    [self.view addSubview:topView];
     
-   
-    CGFloat h=self.view.frame.size.height-[self topHeight]-48;
-    _refrshTable=[[PullingRefreshTableView alloc] initWithFrame:CGRectMake(0, 48, self.view.frame.size.width,h) pullingDelegate:self];
+    CGFloat h=self.view.frame.size.height-[self topHeight];
+    _refrshTable=[[PullingRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,h) pullingDelegate:self];
     _refrshTable.delegate=self;
     _refrshTable.dataSource=self;
     //_refrshTable.tableHeaderView=topView;
@@ -72,11 +65,7 @@
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
     
- 
-    // Do any additional setup after loading the view.
-}
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+    //加载数据
     self.keyWord=@"";
     [self.metaHelper.pager initParams];
     [self.refrshTable launchRefreshing];
@@ -89,13 +78,12 @@
     //CGRect kbFrame = [[info valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     if ([notification.name isEqualToString:UIKeyboardWillShowNotification]) {//显示键盘
         
-        CountyZoneTopView *topView=(CountyZoneTopView*)[self.view viewWithTag:100];
+        
         
         CGRect r=CGRectMake(0, 0, self.view.bounds.size.width, 44);
-        CGRect r1=topView.frame;
-        r1.origin.y=r.size.height;
+        
         CGRect r2=self.refrshTable.frame;
-        r2.origin.y=r.size.height+r1.size.height;
+        r2.origin.y=r.size.height;
         r2.size.height-=r.size.height;
         
         
@@ -105,29 +93,23 @@
         [UIView animateWithDuration:duration.doubleValue animations:^{
             [UIView setAnimationBeginsFromCurrentState:YES];
             [UIView setAnimationCurve:[curve intValue]];
-           
+            
             self.mySearchBar.frame=r;
-            topView.frame=r1;
             self.refrshTable.frame=r2;
         }];
         
     }
     else  {//隐藏键盘
-        CountyZoneTopView *topView=(CountyZoneTopView*)[self.view viewWithTag:100];
-        CGRect r=topView.frame;
-        r.origin.y=0;
         
         CGRect r1=self.refrshTable.frame;
-        r1.origin.y=r.size.height;
-        r1.size.height=self.view.bounds.size.height-[self topHeight]-r1.origin.y;
+        r1.origin.y=0;
+        r1.size.height=self.view.bounds.size.height-[self topHeight];
         [UIView animateWithDuration:[[info valueForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue] animations:^{
             self.mySearchBar.frame=CGRectZero;
-            topView.frame=r;
             self.refrshTable.frame=r1;
         }];
     }
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -161,9 +143,9 @@
     }
 }
 - (void)loadSourceData{
-
+    
     NSMutableArray *params=[NSMutableArray array];
-    [params addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"4",@"category", nil]];
+    [params addObject:[NSDictionary dictionaryWithObjectsAndKeys:self.dataType,@"category", nil]];
     [params addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"",@"classcode", nil]];
     [params addObject:[NSDictionary dictionaryWithObjectsAndKeys:self.keyWord,@"keywork", nil]];
     [params addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",self.metaHelper.pager.CurPage],@"curPage", nil]];
@@ -229,19 +211,19 @@
 #pragma UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView == self.movieDisplay.searchResultsTableView){
-       return 0;
+        return 0;
     }
     return [self.listData count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-   
+    
     if (tableView == self.movieDisplay.searchResultsTableView) {
         static NSString *CellIdentifier = @"Cell";
         UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
-         return cell;
+        return cell;
     }
     static NSString *CellIdentifier = @"MetaDataCell";
     TKMetaDataCell *cell = (TKMetaDataCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];

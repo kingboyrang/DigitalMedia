@@ -9,6 +9,8 @@
 #import "RelevantViewController.h"
 #import "TKMenuItemCell.h"
 #import "AppHelper.h"
+#import "BasicMetaDataController.h"
+#import "JobAreaViewController.h"
 @interface RelevantViewController ()
 
 @end
@@ -50,6 +52,7 @@
     [cell2.leftMenuItem addTarget:self action:@selector(buttonBoxClick:) forControlEvents:UIControlEventTouchUpInside];
     cell2.leftLabel.text=@"宜蘭百寶箱";
     [cell2.rightMenuItem setImage:[self deviceImageWithName:@"publishing" forType:@"png"] forState:UIControlStateNormal];
+    [cell2.rightMenuItem addTarget:self action:@selector(buttonPublisherClick:) forControlEvents:UIControlEventTouchUpInside];
     cell2.rightLabel.text=@"數位出版品";
     
     TKMenuItemCell *cell3=[[TKMenuItemCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
@@ -60,8 +63,10 @@
     
     TKMenuItemCell *cell4=[[TKMenuItemCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     [cell4.leftMenuItem setImage:[self deviceImageWithName:@"job" forType:@"png"] forState:UIControlStateNormal];
+    [cell4.leftMenuItem addTarget:self action:@selector(buttonJobClick:) forControlEvents:UIControlEventTouchUpInside];
     cell4.leftLabel.text=@"求職專區";
     [cell4.rightMenuItem setImage:[self deviceImageWithName:@"benfit" forType:@"png"] forState:UIControlStateNormal];
+    [cell4.rightMenuItem addTarget:self action:@selector(buttonBenfitClick:) forControlEvents:UIControlEventTouchUpInside];
     cell4.rightLabel.text=@"福利資訊";
     
     self.cells=[NSMutableArray arrayWithObjects:cell1,cell2,cell3,cell4, nil];
@@ -78,6 +83,23 @@
 - (void)buttonBoxClick:(UIButton*)btn{
     [AppHelper openUrl:EGovBoxURL];
 }
+//數位出版品
+- (void)buttonPublisherClick:(UIButton*)btn{
+    BasicMetaDataController *publisher=[[BasicMetaDataController alloc] init];
+    publisher.dataType=@"5";
+    [self.navigationController pushViewController:publisher animated:YES];
+}
+//求職專區
+- (void)buttonJobClick:(UIButton*)btn{
+    JobAreaViewController *jobArea=[[JobAreaViewController alloc] init];
+    [self.navigationController pushViewController:jobArea animated:YES];
+}
+//福利資訊
+- (void)buttonBenfitClick:(UIButton*)btn{
+    BasicMetaDataController *publisher=[[BasicMetaDataController alloc] init];
+    publisher.dataType=@"6";
+    [self.navigationController pushViewController:publisher animated:YES];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -93,6 +115,6 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     CGFloat h=DeviceIsPad?256.0f:128.0f;
-    return h+30;
+    return indexPath.row!=[self.cells count]-1?h+30:h;
 }
 @end

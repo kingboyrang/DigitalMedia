@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface OrganViewController : BasicViewController
-
+@interface OrganViewController : BasicViewController<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic,strong) UITableView *menuTable;
+@property (nonatomic,retain) NSArray *listData;
 @end

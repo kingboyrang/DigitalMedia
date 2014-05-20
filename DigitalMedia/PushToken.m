@@ -7,7 +7,7 @@
 //
 
 #import "PushToken.h"
-#import "SRMNetworkEngine.h"
+#import "ASIServiceArgs.h"
 #import "ApnsToken.h"
 @implementation PushToken
 -(NSString*)XmlSerialize{
@@ -36,18 +36,20 @@
         push.AppType=@"ios";
         push.Flatbed=UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad?@"1":@"2";
         
-        ServiceArgs *args=[[ServiceArgs alloc] init];
+        ASIServiceArgs *args=[[ASIServiceArgs alloc] init];
         args.serviceURL=PushWebServiceUrl;
         args.serviceNameSpace=PushWebServiceNameSpace;
         args.methodName=@"Register";
         args.soapParams=[NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:[push XmlSerialize],@"xml", nil], nil];
         
-        SRMNetworkEngine *engine=[[SRMNetworkEngine alloc] initWithHostName:args.hostName];
-        [engine requestWithArgs:args success:^(MKNetworkOperation *completedOperation) {
-            
-        } failure:^(MKNetworkOperation *completedOperation, NSError *error) {
+        ASIHTTPRequest *engine=[args request];
+        [engine setCompletionBlock:^{
             
         }];
+        [engine setFailedBlock:^{
+            
+        }];
+        [engine startAsynchronous];
     }
 }
 -(NSString*)getPropertyValue:(NSString*)field{

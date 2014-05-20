@@ -9,6 +9,8 @@
 #import "MovieViewController.h"
 #import "TKMenuItemCell.h"
 #import "OrganViewController.h"
+#import "HotMovieViewController.h"
+#import "BasicMetaDataController.h"
 @interface MovieViewController ()
 
 @end
@@ -46,8 +48,10 @@
     
     TKMenuItemCell *cell2=[[TKMenuItemCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     [cell2.leftMenuItem setImage:[self deviceImageWithName:@"hotMovie" forType:@"png"] forState:UIControlStateNormal];
+    [cell2.leftMenuItem addTarget:self action:@selector(buttonHotMovieClick:) forControlEvents:UIControlEventTouchUpInside];
     cell2.leftLabel.text=@"熱門影音";
     [cell2.rightMenuItem setImage:[self deviceImageWithName:@"newMovie" forType:@"png"] forState:UIControlStateNormal];
+    [cell2.rightMenuItem addTarget:self action:@selector(buttonNewsMovieClick:) forControlEvents:UIControlEventTouchUpInside];
     cell2.rightLabel.text=@"最新影音";
     
     self.cells=[NSMutableArray arrayWithObjects:cell1,cell2, nil];
@@ -56,6 +60,17 @@
 - (void)buttonOrganClick:(UIButton*)btn{
     OrganViewController *organ=[[OrganViewController alloc] init];
     [self.navigationController pushViewController:organ animated:YES];
+}
+//熱門影音
+- (void)buttonHotMovieClick:(UIButton*)btn{
+    HotMovieViewController *hotMovie=[[HotMovieViewController alloc] init];
+    [self.navigationController pushViewController:hotMovie animated:YES];
+}
+//最新影音
+- (void)buttonNewsMovieClick:(UIButton*)btn{
+    BasicMetaDataController *newsMovie=[[BasicMetaDataController alloc] init];
+    newsMovie.dataType=@"4";
+    [self.navigationController pushViewController:newsMovie animated:YES];
 }
 - (void)didReceiveMemoryWarning
 {
