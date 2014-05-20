@@ -11,9 +11,9 @@
 #import "JobEmploymentHelper.h"
 
 @protocol JobAreaDelegate <NSObject>
-- (void)showLoadFailure;
-- (void)showNetWorkError;
-- (void)selectedItemWithEntity:(JobEmployment*)entity;
+- (void)showLoadFailure:(id)sender;
+- (void)showNetWorkError:(id)sender;
+- (void)selectedItemWithEntity:(JobEmployment*)entity sender:(id)sender;
 @end
 
 @interface JobAreaList : UIView<PullingRefreshTableViewDelegate,UITableViewDataSource,UITableViewDelegate>

@@ -8,6 +8,7 @@
 
 #import "BasicViewController.h"
 #import "UIButton+TPCategory.h"
+#import "NetWorkConnection.h"
 @interface BasicViewController (){
     AnimateLoadView *_loadView;
     AnimateErrorView *_errorView;
@@ -63,7 +64,7 @@
     return h;
 }
 - (BOOL)hasNewWork{
-    return YES;
+    return [NetWorkConnection IsEnableConnection];
     //return [NetWorkConnection IsEnableConnection];
 }
 - (void)buttonBackClick:(id)sender{

@@ -10,14 +10,13 @@
 #import "ASIServiceHTTPRequest.h"
 #import "JobEmployment.h"
 #import "TKJobCell.h"
+#import "NetWorkConnection.h"
 @interface JobAreaList()
 -(void)loadControls;
 - (void)loadData;
 -(void)loadSourceData;
 @end
 @implementation JobAreaList
-
-
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -29,6 +28,10 @@
     return self;
 }
 -(void)loadingData{
+    if ([self.sourceData count]==0||self.jobHelper.pager.CurPage==0) {
+        //第1次加载执时[下拉加载]
+        [self.jobTable launchRefreshing];//默认加载10笔数据
+    }
 }
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -46,15 +49,26 @@
     }
     JobEmployment *entity=self.sourceData[indexPath.row];
     cell.labTitle.text=[entity getCellValueWithType:self.jobHelper.operType];
-    cell.labDate.text=[entity detailText];
+    cell.labDate.text=self.jobHelper.operType==1?entity.WorkAddress:[entity detailText];
     return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    JobEmployment *entity=self.sourceData[indexPath.row];
+    CGFloat leftX=5,top=4,topY=8,w=self.frame.size.width-leftX-20,total=0.0f;
+    NSString *title1=[entity getCellValueWithType:self.jobHelper.operType];
+    CGSize size=[title1 textSize:defaultBDeviceFont withWidth:w];
+    total+=topY+size.height+top;
+    title1=self.jobHelper.operType==1?entity.WorkAddress:[entity detailText];
+    size=[title1 textSize:defaultSDeviceFont withWidth:w];
+    total+=size.height+topY;
+    return total;
 }
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (self.delegate&&[self.delegate respondsToSelector:@selector(selectedItemWithEntity:)]) {
-        [self.delegate selectedItemWithEntity:self.sourceData[indexPath.row]];
+    if (self.delegate&&[self.delegate respondsToSelector:@selector(selectedItemWithEntity:sender:)]) {
+        [self.delegate selectedItemWithEntity:self.sourceData[indexPath.row] sender:self];
     }
     
 }
@@ -91,16 +105,16 @@
         }
         if (!boo) {
             self.jobHelper.pager.CurPage--;
-            if (self.delegate&&[self.delegate respondsToSelector:@selector(showLoadFailure)]) {
-                [self.delegate showLoadFailure];
+            if (self.delegate&&[self.delegate respondsToSelector:@selector(showLoadFailure:)]) {
+                [self.delegate showLoadFailure:self];
             }
         }
     } failure:^{
         [self.jobTable tableViewDidFinishedLoading];
         self.jobTable.reachedTheEnd  = NO;
         self.jobHelper.pager.CurPage--;
-        if (self.delegate&&[self.delegate respondsToSelector:@selector(showLoadFailure)]) {
-            [self.delegate showLoadFailure];
+        if (self.delegate&&[self.delegate respondsToSelector:@selector(showLoadFailure:)]) {
+            [self.delegate showLoadFailure:self];
         }
     }];
 }
@@ -108,16 +122,15 @@
     if (self.refreshing) {
         self.refreshing=NO;
     }
-    /***
-    if (![[NetWorkConnection sharedInstance] hasConnection]) {
-        _tableView.reachedTheEnd  = NO;
-        [_tableView tableViewDidFinishedLoadingWithMessage:@"請檢查網絡連接.."];
-     if (self.delegate&&[self.delegate respondsToSelector:@selector(showNetWorkError)]) {
-     [self.delegate showNetWorkError];
-     }
+    //判断是否存在网络连接
+    if (![NetWorkConnection IsEnableConnection]) {
+        [self.jobTable tableViewDidFinishedLoading];
+        self.jobTable.reachedTheEnd  = NO;
+        if (self.delegate&&[self.delegate respondsToSelector:@selector(showNetWorkError:)]) {
+            [self.delegate showNetWorkError:self];
+        }
         return;
     }
-     ***/
     if (self.jobHelper.pager.hasNextPage) {
         [self.jobHelper.pager loadNextPage];
         [self loadSourceData];//加载数据

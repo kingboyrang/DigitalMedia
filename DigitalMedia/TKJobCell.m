@@ -36,12 +36,10 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     CGFloat leftX=5,top=4;
-    CGSize size=[_labTitle.text textSize:_labTitle.font withWidth:self.frame.size.width-leftX-15];
+    CGSize size=[_labTitle.text textSize:_labTitle.font withWidth:self.frame.size.width-leftX-20];
     _labTitle.frame=CGRectMake(leftX, 8, size.width, size.height);
-    size=[_labDate.text textSize:_labDate.font withWidth:self.frame.size.width-leftX-15];
+    size=[_labDate.text textSize:_labDate.font withWidth:self.frame.size.width-leftX-20];
     _labDate.frame=CGRectMake(leftX, _labTitle.frame.origin.y+_labTitle.frame.size.height+top, size.width, size.height);
-    
-    NSLog(@"h=%f",_labDate.frame.origin.y+_labDate.frame.size.height+_labTitle.frame.origin.y);
 }
 
 @end

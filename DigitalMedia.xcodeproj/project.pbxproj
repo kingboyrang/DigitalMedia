@@ -67,6 +67,10 @@
 		01C94129192B3F0D0044AA2B /* JobEmploymentHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94128192B3F0D0044AA2B /* JobEmploymentHelper.m */; };
 		01C9412C192B41AE0044AA2B /* JobAreaList.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C9412B192B41AE0044AA2B /* JobAreaList.m */; };
 		01C9412F192B470C0044AA2B /* TKJobCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C9412E192B470C0044AA2B /* TKJobCell.m */; };
+		01C94133192B5A2B0044AA2B /* NetWorkConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94132192B5A2B0044AA2B /* NetWorkConnection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01C94136192B63A20044AA2B /* JobDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94135192B63A20044AA2B /* JobDetailViewController.m */; };
+		01C94139192B65D40044AA2B /* TKDataDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94138192B65D40044AA2B /* TKDataDetailCell.m */; };
+		01C9413C192B69540044AA2B /* RecruiterDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C9413B192B69540044AA2B /* RecruiterDetail.m */; };
 		01E8E8DF1924AECD0071BC5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01E8E8DE1924AECD0071BC5D /* Foundation.framework */; };
 		01E8E8E11924AECD0071BC5D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01E8E8E01924AECD0071BC5D /* CoreGraphics.framework */; };
 		01E8E8E31924AECD0071BC5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01E8E8E21924AECD0071BC5D /* UIKit.framework */; };
@@ -222,6 +226,14 @@
 		01C9412B192B41AE0044AA2B /* JobAreaList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobAreaList.m; sourceTree = "<group>"; };
 		01C9412D192B470C0044AA2B /* TKJobCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKJobCell.h; sourceTree = "<group>"; };
 		01C9412E192B470C0044AA2B /* TKJobCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKJobCell.m; sourceTree = "<group>"; };
+		01C94131192B5A2B0044AA2B /* NetWorkConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkConnection.h; sourceTree = "<group>"; };
+		01C94132192B5A2B0044AA2B /* NetWorkConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkConnection.m; sourceTree = "<group>"; };
+		01C94134192B63A20044AA2B /* JobDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobDetailViewController.h; sourceTree = "<group>"; };
+		01C94135192B63A20044AA2B /* JobDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobDetailViewController.m; sourceTree = "<group>"; };
+		01C94137192B65D40044AA2B /* TKDataDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDataDetailCell.h; sourceTree = "<group>"; };
+		01C94138192B65D40044AA2B /* TKDataDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKDataDetailCell.m; sourceTree = "<group>"; };
+		01C9413A192B69540044AA2B /* RecruiterDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecruiterDetail.h; sourceTree = "<group>"; };
+		01C9413B192B69540044AA2B /* RecruiterDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecruiterDetail.m; sourceTree = "<group>"; };
 		01E8E8DB1924AECD0071BC5D /* DigitalMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigitalMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01E8E8DE1924AECD0071BC5D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		01E8E8E01924AECD0071BC5D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -420,6 +432,8 @@
 				01C94110192B29050044AA2B /* Department.m */,
 				01C94124192B3D6C0044AA2B /* JobEmployment.h */,
 				01C94125192B3D6C0044AA2B /* JobEmployment.m */,
+				01C9413A192B69540044AA2B /* RecruiterDetail.h */,
+				01C9413B192B69540044AA2B /* RecruiterDetail.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -488,6 +502,8 @@
 				01C9411D192B37BF0044AA2B /* UI */,
 				01C9411A192B37B20044AA2B /* JobAreaViewController.h */,
 				01C9411B192B37B20044AA2B /* JobAreaViewController.m */,
+				01C94134192B63A20044AA2B /* JobDetailViewController.h */,
+				01C94135192B63A20044AA2B /* JobDetailViewController.m */,
 			);
 			name = Job;
 			sourceTree = "<group>";
@@ -501,8 +517,19 @@
 				01C9411F192B37EA0044AA2B /* JobTopView.m */,
 				01C9412D192B470C0044AA2B /* TKJobCell.h */,
 				01C9412E192B470C0044AA2B /* TKJobCell.m */,
+				01C94137192B65D40044AA2B /* TKDataDetailCell.h */,
+				01C94138192B65D40044AA2B /* TKDataDetailCell.m */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		01C94130192B5A230044AA2B /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				01C94131192B5A2B0044AA2B /* NetWorkConnection.h */,
+				01C94132192B5A2B0044AA2B /* NetWorkConnection.m */,
+			);
+			name = NetWork;
 			sourceTree = "<group>";
 		};
 		01E8E8D21924AECD0071BC5D = {
@@ -594,6 +621,7 @@
 		01E8E9161924AF0B0071BC5D /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				01C94130192B5A230044AA2B /* NetWork */,
 				01C940C5192AE0AA0044AA2B /* DAL */,
 				0150B9451926189A005DEAAC /* Model */,
 				0150B91E1926104C005DEAAC /* Webservice */,
@@ -843,6 +871,7 @@
 				0150B8D21925F4C1005DEAAC /* TKLabelCell.m in Sources */,
 				01E8E9231924AF680071BC5D /* AnimateErrorView.m in Sources */,
 				01C940CE192AF0FC0044AA2B /* TKMetaDataCell.m in Sources */,
+				01C9413C192B69540044AA2B /* RecruiterDetail.m in Sources */,
 				01C940E7192B00DA0044AA2B /* ASIAuthenticationDialog.m in Sources */,
 				01C940BB1929E7230044AA2B /* UIBarButtonItem+TPCategory.m in Sources */,
 				01C940F2192B00F90044AA2B /* Reachability.m in Sources */,
@@ -858,6 +887,7 @@
 				01C940EE192B00DA0044AA2B /* ASINetworkQueue.m in Sources */,
 				01C94120192B37EA0044AA2B /* JobTopView.m in Sources */,
 				0150B930192612A0005DEAAC /* CountyZoneTopView.m in Sources */,
+				01C94139192B65D40044AA2B /* TKDataDetailCell.m in Sources */,
 				01C9412F192B470C0044AA2B /* TKJobCell.m in Sources */,
 				017D2F051925B44E00E1CC80 /* TKMenuItemCell.m in Sources */,
 				01E8E9361924B4DA0071BC5D /* NSData+TPCategory.m in Sources */,
@@ -871,6 +901,7 @@
 				01C94108192B240C0044AA2B /* TKHotMovieCell.m in Sources */,
 				01C940EB192B00DA0044AA2B /* ASIFormDataRequest.m in Sources */,
 				01C94105192B214F0044AA2B /* HotMovieViewController.m in Sources */,
+				01C94133192B5A2B0044AA2B /* NetWorkConnection.m in Sources */,
 				01C94118192B34060044AA2B /* BasicMetaDataController.m in Sources */,
 				01E8E9251924AF680071BC5D /* BasicViewController.m in Sources */,
 				0150B948192619B3005DEAAC /* AdminURL.m in Sources */,
@@ -880,6 +911,7 @@
 				01C9410E192B28BD0044AA2B /* OrgenMovieViewController.m in Sources */,
 				01C9412C192B41AE0044AA2B /* JobAreaList.m in Sources */,
 				01C940FD192B01330044AA2B /* ASIServiceHTTPRequest.m in Sources */,
+				01C94136192B63A20044AA2B /* JobDetailViewController.m in Sources */,
 				0150B8D51925F61C005DEAAC /* TKLabelLabelCell.m in Sources */,
 				0150B94B19261E98005DEAAC /* PushToken.m in Sources */,
 				01C940E8192B00DA0044AA2B /* ASIDataCompressor.m in Sources */,
