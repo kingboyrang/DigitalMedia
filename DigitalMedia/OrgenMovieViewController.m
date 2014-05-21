@@ -47,7 +47,7 @@
     [params addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"",@"childDept", nil]];
     ASIServiceArgs *args=[[ASIServiceArgs alloc] init];
     args.methodName=@"GetMetaDataByDept";
-    
+    args.soapParams=params;
     [self showLoadingAnimatedWithTitle:@"正在加載,請稍後..."];
     ASIServiceHTTPRequest *request=[ASIServiceHTTPRequest requestWithArgs:args];
     [request success:^{
@@ -55,7 +55,7 @@
         XmlNode *node=[request.ServiceResult methodNode];
         if (node) {
             [request.ServiceResult.xmlParse setDataSource:node.InnerText];
-            self.listData=[request.ServiceResult.xmlParse selectNodes:@"//MetaDataByDept" className:@"SearchMetaData"];
+             self.listData=[request.ServiceResult.xmlParse selectNodes:@"//MetaDataByDept" className:@"SearchMetaData"];
             [_menuTable reloadData];
         }
     } failure:^{

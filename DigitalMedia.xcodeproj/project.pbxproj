@@ -71,6 +71,31 @@
 		01C94136192B63A20044AA2B /* JobDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94135192B63A20044AA2B /* JobDetailViewController.m */; };
 		01C94139192B65D40044AA2B /* TKDataDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94138192B65D40044AA2B /* TKDataDetailCell.m */; };
 		01C9413C192B69540044AA2B /* RecruiterDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C9413B192B69540044AA2B /* RecruiterDetail.m */; };
+		01C94142192C31EB0044AA2B /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94141192C31EB0044AA2B /* NewsViewController.m */; };
+		01C9414A192C33900044AA2B /* LightMenuBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94146192C33900044AA2B /* LightMenuBar.m */; };
+		01C9414B192C33900044AA2B /* LightMenuBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94149192C33900044AA2B /* LightMenuBarView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01C9414E192C3BF20044AA2B /* NewsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C9414D192C3BF20044AA2B /* NewsView.m */; };
+		01C94151192C3E020044AA2B /* WebNews.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94150192C3E020044AA2B /* WebNews.m */; };
+		01C94154192C3E7F0044AA2B /* WebNewsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94153192C3E7F0044AA2B /* WebNewsHelper.m */; };
+		01C94157192C46350044AA2B /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94156192C46350044AA2B /* NewsDetailViewController.m */; };
+		01C9415C192C52170044AA2B /* CCSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C9415B192C52170044AA2B /* CCSegmentedControl.m */; };
+		01C94160192C541A0044AA2B /* HappyMoviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C9415F192C541A0044AA2B /* HappyMoviewController.m */; };
+		01C94166192C59EF0044AA2B /* HappyElandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94165192C59EF0044AA2B /* HappyElandView.m */; };
+		01C94169192C724D0044AA2B /* HappyEland.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94168192C724D0044AA2B /* HappyEland.m */; };
+		01C9416C192C76AB0044AA2B /* OrganView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C9416B192C76AB0044AA2B /* OrganView.m */; };
+		01C9416F192C7A650044AA2B /* HotMovieView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C9416E192C7A650044AA2B /* HotMovieView.m */; };
+		01C94174192C9CF00044AA2B /* PushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94173192C9CF00044AA2B /* PushViewController.m */; };
+		01C94178192C9D420044AA2B /* CacheHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94177192C9D420044AA2B /* CacheHelper.m */; };
+		01C9417B192C9D530044AA2B /* PushResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C9417A192C9D530044AA2B /* PushResult.m */; };
+		01C94181192C9DE80044AA2B /* ShowPushDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C9417E192C9DE80044AA2B /* ShowPushDetail.m */; };
+		01C94182192C9DE80044AA2B /* PushDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94180192C9DE80044AA2B /* PushDetail.m */; };
+		01C94185192C9E000044AA2B /* RTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94184192C9E000044AA2B /* RTLabel.m */; };
+		01C94191192C9E5B0044AA2B /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94188192C9E5B0044AA2B /* UIActionSheet+Blocks.m */; };
+		01C94192192C9E5B0044AA2B /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C9418A192C9E5B0044AA2B /* UIAlertView+Blocks.m */; };
+		01C94193192C9E5B0044AA2B /* RIButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C9418C192C9E5B0044AA2B /* RIButtonItem.m */; };
+		01C94194192C9E5B0044AA2B /* AlertHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C9418E192C9E5B0044AA2B /* AlertHelper.m */; };
+		01C94195192C9E5B0044AA2B /* ActionSheetHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94190192C9E5B0044AA2B /* ActionSheetHelper.m */; };
+		01C94198192CA6600044AA2B /* PushDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94197192CA6600044AA2B /* PushDetailViewController.m */; };
 		01E8E8DF1924AECD0071BC5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01E8E8DE1924AECD0071BC5D /* Foundation.framework */; };
 		01E8E8E11924AECD0071BC5D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01E8E8E01924AECD0071BC5D /* CoreGraphics.framework */; };
 		01E8E8E31924AECD0071BC5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01E8E8E21924AECD0071BC5D /* UIKit.framework */; };
@@ -234,6 +259,58 @@
 		01C94138192B65D40044AA2B /* TKDataDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKDataDetailCell.m; sourceTree = "<group>"; };
 		01C9413A192B69540044AA2B /* RecruiterDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecruiterDetail.h; sourceTree = "<group>"; };
 		01C9413B192B69540044AA2B /* RecruiterDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecruiterDetail.m; sourceTree = "<group>"; };
+		01C94140192C31EB0044AA2B /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		01C94141192C31EB0044AA2B /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
+		01C94145192C33900044AA2B /* LightMenuBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightMenuBar.h; sourceTree = "<group>"; };
+		01C94146192C33900044AA2B /* LightMenuBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightMenuBar.m; sourceTree = "<group>"; };
+		01C94147192C33900044AA2B /* LightMenuBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightMenuBarDelegate.h; sourceTree = "<group>"; };
+		01C94148192C33900044AA2B /* LightMenuBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightMenuBarView.h; sourceTree = "<group>"; };
+		01C94149192C33900044AA2B /* LightMenuBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightMenuBarView.m; sourceTree = "<group>"; };
+		01C9414C192C3BF20044AA2B /* NewsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsView.h; sourceTree = "<group>"; };
+		01C9414D192C3BF20044AA2B /* NewsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsView.m; sourceTree = "<group>"; };
+		01C9414F192C3E020044AA2B /* WebNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebNews.h; sourceTree = "<group>"; };
+		01C94150192C3E020044AA2B /* WebNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebNews.m; sourceTree = "<group>"; };
+		01C94152192C3E7F0044AA2B /* WebNewsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebNewsHelper.h; sourceTree = "<group>"; };
+		01C94153192C3E7F0044AA2B /* WebNewsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebNewsHelper.m; sourceTree = "<group>"; };
+		01C94155192C46350044AA2B /* NewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailViewController.h; sourceTree = "<group>"; };
+		01C94156192C46350044AA2B /* NewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailViewController.m; sourceTree = "<group>"; };
+		01C9415A192C52170044AA2B /* CCSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSegmentedControl.h; sourceTree = "<group>"; };
+		01C9415B192C52170044AA2B /* CCSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSegmentedControl.m; sourceTree = "<group>"; };
+		01C9415E192C541A0044AA2B /* HappyMoviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HappyMoviewController.h; sourceTree = "<group>"; };
+		01C9415F192C541A0044AA2B /* HappyMoviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HappyMoviewController.m; sourceTree = "<group>"; };
+		01C94164192C59EF0044AA2B /* HappyElandView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HappyElandView.h; sourceTree = "<group>"; };
+		01C94165192C59EF0044AA2B /* HappyElandView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HappyElandView.m; sourceTree = "<group>"; };
+		01C94167192C724D0044AA2B /* HappyEland.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HappyEland.h; sourceTree = "<group>"; };
+		01C94168192C724D0044AA2B /* HappyEland.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HappyEland.m; sourceTree = "<group>"; };
+		01C9416A192C76AB0044AA2B /* OrganView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganView.h; sourceTree = "<group>"; };
+		01C9416B192C76AB0044AA2B /* OrganView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganView.m; sourceTree = "<group>"; };
+		01C9416D192C7A650044AA2B /* HotMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotMovieView.h; sourceTree = "<group>"; };
+		01C9416E192C7A650044AA2B /* HotMovieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotMovieView.m; sourceTree = "<group>"; };
+		01C94170192C7DA10044AA2B /* HappyMovieDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HappyMovieDelegate.h; sourceTree = "<group>"; };
+		01C94172192C9CF00044AA2B /* PushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushViewController.h; sourceTree = "<group>"; };
+		01C94173192C9CF00044AA2B /* PushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushViewController.m; sourceTree = "<group>"; };
+		01C94176192C9D420044AA2B /* CacheHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheHelper.h; sourceTree = "<group>"; };
+		01C94177192C9D420044AA2B /* CacheHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheHelper.m; sourceTree = "<group>"; };
+		01C94179192C9D530044AA2B /* PushResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushResult.h; sourceTree = "<group>"; };
+		01C9417A192C9D530044AA2B /* PushResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushResult.m; sourceTree = "<group>"; };
+		01C9417D192C9DE80044AA2B /* ShowPushDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowPushDetail.h; sourceTree = "<group>"; };
+		01C9417E192C9DE80044AA2B /* ShowPushDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowPushDetail.m; sourceTree = "<group>"; };
+		01C9417F192C9DE80044AA2B /* PushDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushDetail.h; sourceTree = "<group>"; };
+		01C94180192C9DE80044AA2B /* PushDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushDetail.m; sourceTree = "<group>"; };
+		01C94183192C9E000044AA2B /* RTLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLabel.h; sourceTree = "<group>"; };
+		01C94184192C9E000044AA2B /* RTLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTLabel.m; sourceTree = "<group>"; };
+		01C94187192C9E5B0044AA2B /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
+		01C94188192C9E5B0044AA2B /* UIActionSheet+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks.m"; sourceTree = "<group>"; };
+		01C94189192C9E5B0044AA2B /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
+		01C9418A192C9E5B0044AA2B /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
+		01C9418B192C9E5B0044AA2B /* RIButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIButtonItem.h; sourceTree = "<group>"; };
+		01C9418C192C9E5B0044AA2B /* RIButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RIButtonItem.m; sourceTree = "<group>"; };
+		01C9418D192C9E5B0044AA2B /* AlertHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertHelper.h; sourceTree = "<group>"; };
+		01C9418E192C9E5B0044AA2B /* AlertHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertHelper.m; sourceTree = "<group>"; };
+		01C9418F192C9E5B0044AA2B /* ActionSheetHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetHelper.h; sourceTree = "<group>"; };
+		01C94190192C9E5B0044AA2B /* ActionSheetHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetHelper.m; sourceTree = "<group>"; };
+		01C94196192CA6600044AA2B /* PushDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushDetailViewController.h; sourceTree = "<group>"; };
+		01C94197192CA6600044AA2B /* PushDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushDetailViewController.m; sourceTree = "<group>"; };
 		01E8E8DB1924AECD0071BC5D /* DigitalMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigitalMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01E8E8DE1924AECD0071BC5D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		01E8E8E01924AECD0071BC5D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -418,6 +495,7 @@
 		0150B9451926189A005DEAAC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				01C94175192C9D2E0044AA2B /* Push */,
 				0150B94919261E98005DEAAC /* PushToken.h */,
 				0150B94A19261E98005DEAAC /* PushToken.m */,
 				0150B946192619B3005DEAAC /* AdminURL.h */,
@@ -434,6 +512,10 @@
 				01C94125192B3D6C0044AA2B /* JobEmployment.m */,
 				01C9413A192B69540044AA2B /* RecruiterDetail.h */,
 				01C9413B192B69540044AA2B /* RecruiterDetail.m */,
+				01C9414F192C3E020044AA2B /* WebNews.h */,
+				01C94150192C3E020044AA2B /* WebNews.m */,
+				01C94167192C724D0044AA2B /* HappyEland.h */,
+				01C94168192C724D0044AA2B /* HappyEland.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -456,6 +538,8 @@
 				01C940C7192AE2230044AA2B /* SearchMetaDataHelper.m */,
 				01C94127192B3F0D0044AA2B /* JobEmploymentHelper.h */,
 				01C94128192B3F0D0044AA2B /* JobEmploymentHelper.m */,
+				01C94152192C3E7F0044AA2B /* WebNewsHelper.h */,
+				01C94153192C3E7F0044AA2B /* WebNewsHelper.m */,
 			);
 			name = DAL;
 			sourceTree = "<group>";
@@ -530,6 +614,119 @@
 				01C94132192B5A2B0044AA2B /* NetWorkConnection.m */,
 			);
 			name = NetWork;
+			sourceTree = "<group>";
+		};
+		01C9413F192C31CB0044AA2B /* News */ = {
+			isa = PBXGroup;
+			children = (
+				01C94143192C33810044AA2B /* UI */,
+				01C94140192C31EB0044AA2B /* NewsViewController.h */,
+				01C94141192C31EB0044AA2B /* NewsViewController.m */,
+				01C94155192C46350044AA2B /* NewsDetailViewController.h */,
+				01C94156192C46350044AA2B /* NewsDetailViewController.m */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		01C94143192C33810044AA2B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				01C94144192C33860044AA2B /* LightMenuBar */,
+				01C9414C192C3BF20044AA2B /* NewsView.h */,
+				01C9414D192C3BF20044AA2B /* NewsView.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		01C94144192C33860044AA2B /* LightMenuBar */ = {
+			isa = PBXGroup;
+			children = (
+				01C94145192C33900044AA2B /* LightMenuBar.h */,
+				01C94146192C33900044AA2B /* LightMenuBar.m */,
+				01C94147192C33900044AA2B /* LightMenuBarDelegate.h */,
+				01C94148192C33900044AA2B /* LightMenuBarView.h */,
+				01C94149192C33900044AA2B /* LightMenuBarView.m */,
+			);
+			name = LightMenuBar;
+			sourceTree = "<group>";
+		};
+		01C94158192C52080044AA2B /* Happy */ = {
+			isa = PBXGroup;
+			children = (
+				01C94159192C520E0044AA2B /* UI */,
+				01C9415E192C541A0044AA2B /* HappyMoviewController.h */,
+				01C9415F192C541A0044AA2B /* HappyMoviewController.m */,
+			);
+			name = Happy;
+			sourceTree = "<group>";
+		};
+		01C94159192C520E0044AA2B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				01C9415A192C52170044AA2B /* CCSegmentedControl.h */,
+				01C9415B192C52170044AA2B /* CCSegmentedControl.m */,
+				01C94164192C59EF0044AA2B /* HappyElandView.h */,
+				01C94165192C59EF0044AA2B /* HappyElandView.m */,
+				01C9416A192C76AB0044AA2B /* OrganView.h */,
+				01C9416B192C76AB0044AA2B /* OrganView.m */,
+				01C9416D192C7A650044AA2B /* HotMovieView.h */,
+				01C9416E192C7A650044AA2B /* HotMovieView.m */,
+				01C94170192C7DA10044AA2B /* HappyMovieDelegate.h */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		01C94171192C9CD70044AA2B /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				01C9417C192C9DD90044AA2B /* UI */,
+				01C94172192C9CF00044AA2B /* PushViewController.h */,
+				01C94173192C9CF00044AA2B /* PushViewController.m */,
+				01C94196192CA6600044AA2B /* PushDetailViewController.h */,
+				01C94197192CA6600044AA2B /* PushDetailViewController.m */,
+			);
+			name = Push;
+			sourceTree = "<group>";
+		};
+		01C94175192C9D2E0044AA2B /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				01C94179192C9D530044AA2B /* PushResult.h */,
+				01C9417A192C9D530044AA2B /* PushResult.m */,
+				01C94176192C9D420044AA2B /* CacheHelper.h */,
+				01C94177192C9D420044AA2B /* CacheHelper.m */,
+			);
+			name = Push;
+			sourceTree = "<group>";
+		};
+		01C9417C192C9DD90044AA2B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				01C94183192C9E000044AA2B /* RTLabel.h */,
+				01C94184192C9E000044AA2B /* RTLabel.m */,
+				01C9417D192C9DE80044AA2B /* ShowPushDetail.h */,
+				01C9417E192C9DE80044AA2B /* ShowPushDetail.m */,
+				01C9417F192C9DE80044AA2B /* PushDetail.h */,
+				01C94180192C9DE80044AA2B /* PushDetail.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		01C94186192C9E280044AA2B /* Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				01C94187192C9E5B0044AA2B /* UIActionSheet+Blocks.h */,
+				01C94188192C9E5B0044AA2B /* UIActionSheet+Blocks.m */,
+				01C94189192C9E5B0044AA2B /* UIAlertView+Blocks.h */,
+				01C9418A192C9E5B0044AA2B /* UIAlertView+Blocks.m */,
+				01C9418B192C9E5B0044AA2B /* RIButtonItem.h */,
+				01C9418C192C9E5B0044AA2B /* RIButtonItem.m */,
+				01C9418D192C9E5B0044AA2B /* AlertHelper.h */,
+				01C9418E192C9E5B0044AA2B /* AlertHelper.m */,
+				01C9418F192C9E5B0044AA2B /* ActionSheetHelper.h */,
+				01C94190192C9E5B0044AA2B /* ActionSheetHelper.m */,
+			);
+			name = Blocks;
 			sourceTree = "<group>";
 		};
 		01E8E8D21924AECD0071BC5D = {
@@ -621,6 +818,7 @@
 		01E8E9161924AF0B0071BC5D /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				01C94186192C9E280044AA2B /* Blocks */,
 				01C94130192B5A230044AA2B /* NetWork */,
 				01C940C5192AE0AA0044AA2B /* DAL */,
 				0150B9451926189A005DEAAC /* Model */,
@@ -701,6 +899,7 @@
 		01E8E94E1924C2310071BC5D /* Movie */ = {
 			isa = PBXGroup;
 			children = (
+				01C94158192C52080044AA2B /* Happy */,
 				017D2F021925B42A00E1CC80 /* UI */,
 				01E8E96A192595670071BC5D /* MovieViewController.h */,
 				01E8E96B192595670071BC5D /* MovieViewController.m */,
@@ -735,6 +934,8 @@
 		01E8E9511924C3890071BC5D /* RelevantInfo */ = {
 			isa = PBXGroup;
 			children = (
+				01C94171192C9CD70044AA2B /* Push */,
+				01C9413F192C31CB0044AA2B /* News */,
 				01C94119192B37850044AA2B /* Job */,
 				01E8E976192596000071BC5D /* RelevantViewController.h */,
 				01E8E977192596000071BC5D /* RelevantViewController.m */,
@@ -864,6 +1065,7 @@
 				01E8E9291924B0020071BC5D /* UIColor+TPCategory.m in Sources */,
 				01C94126192B3D6C0044AA2B /* JobEmployment.m in Sources */,
 				0150B94019261715005DEAAC /* GDataXMLNode.m in Sources */,
+				01C94160192C541A0044AA2B /* HappyMoviewController.m in Sources */,
 				017D2F081925C3B000E1CC80 /* OrganViewController.m in Sources */,
 				01C940FE192B01330044AA2B /* ASIServiceHelper.m in Sources */,
 				01C940FB192B01330044AA2B /* ASIServiceArgs.m in Sources */,
@@ -874,20 +1076,28 @@
 				01C9413C192B69540044AA2B /* RecruiterDetail.m in Sources */,
 				01C940E7192B00DA0044AA2B /* ASIAuthenticationDialog.m in Sources */,
 				01C940BB1929E7230044AA2B /* UIBarButtonItem+TPCategory.m in Sources */,
+				01C94185192C9E000044AA2B /* RTLabel.m in Sources */,
 				01C940F2192B00F90044AA2B /* Reachability.m in Sources */,
 				0150B9511926231D005DEAAC /* FileHelper.m in Sources */,
 				01E8E8EF1924AECD0071BC5D /* AppDelegate.m in Sources */,
 				017D2EF91925B1BC00E1CC80 /* UIButton+TPCategory.m in Sources */,
 				01C94111192B29050044AA2B /* Department.m in Sources */,
 				26681D2F192A1BB200874C97 /* DMSearchBar.m in Sources */,
+				01C94166192C59EF0044AA2B /* HappyElandView.m in Sources */,
 				01E8E972192595D00071BC5D /* AboutUsViewController.m in Sources */,
 				01E8E975192595E90071BC5D /* FavoritesViewController.m in Sources */,
 				01E8E9551924C4410071BC5D /* BasicTabBarController.m in Sources */,
+				01C94198192CA6600044AA2B /* PushDetailViewController.m in Sources */,
+				01C9414A192C33900044AA2B /* LightMenuBar.m in Sources */,
 				0150B94E192621EC005DEAAC /* ApnsToken.m in Sources */,
 				01C940EE192B00DA0044AA2B /* ASINetworkQueue.m in Sources */,
 				01C94120192B37EA0044AA2B /* JobTopView.m in Sources */,
+				01C94169192C724D0044AA2B /* HappyEland.m in Sources */,
 				0150B930192612A0005DEAAC /* CountyZoneTopView.m in Sources */,
 				01C94139192B65D40044AA2B /* TKDataDetailCell.m in Sources */,
+				01C9417B192C9D530044AA2B /* PushResult.m in Sources */,
+				01C94142192C31EB0044AA2B /* NewsViewController.m in Sources */,
+				01C94174192C9CF00044AA2B /* PushViewController.m in Sources */,
 				01C9412F192B470C0044AA2B /* TKJobCell.m in Sources */,
 				017D2F051925B44E00E1CC80 /* TKMenuItemCell.m in Sources */,
 				01E8E9361924B4DA0071BC5D /* NSData+TPCategory.m in Sources */,
@@ -898,20 +1108,31 @@
 				01C940FC192B01330044AA2B /* ASIServiceResult.m in Sources */,
 				01C9411C192B37B20044AA2B /* JobAreaViewController.m in Sources */,
 				01E8E978192596000071BC5D /* RelevantViewController.m in Sources */,
+				01C94154192C3E7F0044AA2B /* WebNewsHelper.m in Sources */,
 				01C94108192B240C0044AA2B /* TKHotMovieCell.m in Sources */,
 				01C940EB192B00DA0044AA2B /* ASIFormDataRequest.m in Sources */,
+				01C94195192C9E5B0044AA2B /* ActionSheetHelper.m in Sources */,
 				01C94105192B214F0044AA2B /* HotMovieViewController.m in Sources */,
 				01C94133192B5A2B0044AA2B /* NetWorkConnection.m in Sources */,
 				01C94118192B34060044AA2B /* BasicMetaDataController.m in Sources */,
 				01E8E9251924AF680071BC5D /* BasicViewController.m in Sources */,
 				0150B948192619B3005DEAAC /* AdminURL.m in Sources */,
+				01C94191192C9E5B0044AA2B /* UIActionSheet+Blocks.m in Sources */,
 				01C940E9192B00DA0044AA2B /* ASIDataDecompressor.m in Sources */,
+				01C9416F192C7A650044AA2B /* HotMovieView.m in Sources */,
 				01E8E9221924AF680071BC5D /* AnimateLoadView.m in Sources */,
 				01E8E96C192595670071BC5D /* MovieViewController.m in Sources */,
 				01C9410E192B28BD0044AA2B /* OrgenMovieViewController.m in Sources */,
+				01C94192192C9E5B0044AA2B /* UIAlertView+Blocks.m in Sources */,
+				01C94181192C9DE80044AA2B /* ShowPushDetail.m in Sources */,
 				01C9412C192B41AE0044AA2B /* JobAreaList.m in Sources */,
+				01C94157192C46350044AA2B /* NewsDetailViewController.m in Sources */,
 				01C940FD192B01330044AA2B /* ASIServiceHTTPRequest.m in Sources */,
+				01C94194192C9E5B0044AA2B /* AlertHelper.m in Sources */,
+				01C9415C192C52170044AA2B /* CCSegmentedControl.m in Sources */,
+				01C94178192C9D420044AA2B /* CacheHelper.m in Sources */,
 				01C94136192B63A20044AA2B /* JobDetailViewController.m in Sources */,
+				01C9414E192C3BF20044AA2B /* NewsView.m in Sources */,
 				0150B8D51925F61C005DEAAC /* TKLabelLabelCell.m in Sources */,
 				0150B94B19261E98005DEAAC /* PushToken.m in Sources */,
 				01C940E8192B00DA0044AA2B /* ASIDataCompressor.m in Sources */,
@@ -921,11 +1142,16 @@
 				01E8E8EB1924AECD0071BC5D /* main.m in Sources */,
 				01E8E9301924B4B00071BC5D /* UINavigationBar+TPCategory.m in Sources */,
 				01C940CB192AE6E60044AA2B /* DataPager.m in Sources */,
+				01C9416C192C76AB0044AA2B /* OrganView.m in Sources */,
 				0150B8F119260E79005DEAAC /* AppHelper.m in Sources */,
 				01C940ED192B00DA0044AA2B /* ASIInputStream.m in Sources */,
 				01C940C8192AE2230044AA2B /* SearchMetaDataHelper.m in Sources */,
+				01C94193192C9E5B0044AA2B /* RIButtonItem.m in Sources */,
 				01C940EA192B00DA0044AA2B /* ASIDownloadCache.m in Sources */,
+				01C9414B192C33900044AA2B /* LightMenuBarView.m in Sources */,
 				0150B94219261715005DEAAC /* XmlParseHelper.m in Sources */,
+				01C94182192C9DE80044AA2B /* PushDetail.m in Sources */,
+				01C94151192C3E020044AA2B /* WebNews.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,7 @@
 #import "AppHelper.h"
 #import "BasicMetaDataController.h"
 #import "JobAreaViewController.h"
+#import "NewsViewController.h"
 @interface RelevantViewController ()
 
 @end
@@ -59,6 +60,7 @@
     [cell3.leftMenuItem setImage:[self deviceImageWithName:@"push" forType:@"png"] forState:UIControlStateNormal];
     cell3.leftLabel.text=@"推播訊息中心";
     [cell3.rightMenuItem setImage:[self deviceImageWithName:@"news" forType:@"png"] forState:UIControlStateNormal];
+    [cell3.rightMenuItem addTarget:self action:@selector(buttonNewsClick:) forControlEvents:UIControlEventTouchUpInside];
     cell3.rightLabel.text=@"最新消息";
     
     TKMenuItemCell *cell4=[[TKMenuItemCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
@@ -87,6 +89,11 @@
 - (void)buttonPublisherClick:(UIButton*)btn{
     BasicMetaDataController *publisher=[[BasicMetaDataController alloc] init];
     publisher.dataType=@"5";
+    [self.navigationController pushViewController:publisher animated:YES];
+}
+//最新消息
+- (void)buttonNewsClick:(UIButton*)btn{
+    NewsViewController *publisher=[[NewsViewController alloc] init];
     [self.navigationController pushViewController:publisher animated:YES];
 }
 //求職專區

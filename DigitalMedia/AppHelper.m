@@ -11,6 +11,9 @@
 #import "XmlParseHelper.h"
 #import "AdminURL.h"
 #import "PushToken.h"
+#import "ASIServiceHTTPRequest.h"
+#import "ApnsToken.h"
+#import "CacheHelper.h"
 @implementation AppHelper
 
 /***页面跳转****/
@@ -62,5 +65,30 @@
         
     }];
     [engine startAsynchronous];
+}
++ (void)asyncPushWithComplete:(void(^)(NSArray *source))completed{
+    ApnsToken *app=[ApnsToken unarchiverApnsToken];
+    if (app.AppToken&&[app.AppToken length]>0) {
+        ASIServiceArgs *args=[[ASIServiceArgs alloc] init];
+        args.methodName=@"GetMessages";
+        args.soapParams=[NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:app.AppToken,@"token", nil], nil];
+        ASIServiceHTTPRequest *request=[ASIServiceHTTPRequest requestWithArgs:args];
+        [request success:^{
+            XmlNode *node=[request.ServiceResult methodNode];
+            if (node) {
+                 NSString *xml=[node.InnerText stringByReplacingOccurrencesOfString:@"xmlns=\"Push[]\"" withString:@""];
+                [request.ServiceResult.xmlParse setDataSource:xml];
+                NSArray *arr=[request.ServiceResult.xmlParse selectNodes:@"//Push" className:@"PushResult"];
+                if (arr&&[arr count]>0) {
+                    [CacheHelper cacheCasePushArray:arr];
+                    if (completed) {
+                        completed(arr);
+                    }
+                }
+            }
+        } failure:^{
+            
+        }];
+    }
 }
 @end

@@ -11,4 +11,5 @@
 @interface AppHelper : NSObject
 + (void)openUrl:(NSString*)url;
 + (void)updateAccess;
++ (void)asyncPushWithComplete:(void(^)(NSArray *source))completed;
 @end

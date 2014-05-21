@@ -43,6 +43,7 @@
 //界面颜色设置
 #define defaultDeviceFontColorName @"e32600"
 #define defaultDeviceFontName @"Courier-Bold"
+#define defaultSDeviceFontName @"Courier"
 #define defaultDeviceFontColor [UIColor colorFromHexRGB:defaultDeviceFontColorName]
 #define defaultBDeviceFont [UIFont fontWithName:defaultDeviceFontName size:16]
 #define defaultSDeviceFont [UIFont fontWithName:defaultDeviceFontName size:14]

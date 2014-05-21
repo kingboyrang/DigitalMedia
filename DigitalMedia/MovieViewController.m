@@ -11,6 +11,7 @@
 #import "OrganViewController.h"
 #import "HotMovieViewController.h"
 #import "BasicMetaDataController.h"
+#import "HappyMoviewController.h"
 @interface MovieViewController ()
 
 @end
@@ -41,6 +42,7 @@
     
     TKMenuItemCell *cell1=[[TKMenuItemCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     [cell1.leftMenuItem setImage:[self deviceImageWithName:@"happyEland" forType:@"png"] forState:UIControlStateNormal];
+    [cell1.leftMenuItem addTarget:self action:@selector(buttonHappyClick:) forControlEvents:UIControlEventTouchUpInside];
     cell1.leftLabel.text=@"幸福宜蘭";
     [cell1.rightMenuItem setImage:[self deviceImageWithName:@"organMovie" forType:@"png"] forState:UIControlStateNormal];
     [cell1.rightMenuItem addTarget:self action:@selector(buttonOrganClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -55,6 +57,11 @@
     cell2.rightLabel.text=@"最新影音";
     
     self.cells=[NSMutableArray arrayWithObjects:cell1,cell2, nil];
+}
+//幸福宜蘭
+- (void)buttonHappyClick:(UIButton*)btn{
+    HappyMoviewController *happyMovie=[[HappyMoviewController alloc] init];
+    [self.navigationController pushViewController:happyMovie animated:YES];
 }
 //機關類別
 - (void)buttonOrganClick:(UIButton*)btn{
