@@ -65,6 +65,7 @@
         }
     }
     [self.view addSubview:_newsScrollView];
+    [self.view sendSubviewToBack:_newsScrollView];
 }
 
 - (void)didReceiveMemoryWarning

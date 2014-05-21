@@ -70,6 +70,8 @@
     ApnsToken *app=[ApnsToken unarchiverApnsToken];
     if (app.AppToken&&[app.AppToken length]>0) {
         ASIServiceArgs *args=[[ASIServiceArgs alloc] init];
+        args.serviceURL=PushWebServiceUrl;
+        args.serviceNameSpace=PushWebServiceNameSpace;
         args.methodName=@"GetMessages";
         args.soapParams=[NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:app.AppToken,@"token", nil], nil];
         ASIServiceHTTPRequest *request=[ASIServiceHTTPRequest requestWithArgs:args];

@@ -90,8 +90,8 @@
 		01C94181192C9DE80044AA2B /* ShowPushDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C9417E192C9DE80044AA2B /* ShowPushDetail.m */; };
 		01C94182192C9DE80044AA2B /* PushDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94180192C9DE80044AA2B /* PushDetail.m */; };
 		01C94185192C9E000044AA2B /* RTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94184192C9E000044AA2B /* RTLabel.m */; };
-		01C94191192C9E5B0044AA2B /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94188192C9E5B0044AA2B /* UIActionSheet+Blocks.m */; };
-		01C94192192C9E5B0044AA2B /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C9418A192C9E5B0044AA2B /* UIAlertView+Blocks.m */; };
+		01C94191192C9E5B0044AA2B /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94188192C9E5B0044AA2B /* UIActionSheet+Blocks.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01C94192192C9E5B0044AA2B /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C9418A192C9E5B0044AA2B /* UIAlertView+Blocks.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		01C94193192C9E5B0044AA2B /* RIButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C9418C192C9E5B0044AA2B /* RIButtonItem.m */; };
 		01C94194192C9E5B0044AA2B /* AlertHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C9418E192C9E5B0044AA2B /* AlertHelper.m */; };
 		01C94195192C9E5B0044AA2B /* ActionSheetHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C94190192C9E5B0044AA2B /* ActionSheetHelper.m */; };
