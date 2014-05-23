@@ -9,6 +9,7 @@
 #import "OrganView.h"
 #import "Department.h"
 #import "ASIServiceHTTPRequest.h"
+#import "NetWorkConnection.h"
 @interface OrganView ()
 - (void)updateData;
 @end
@@ -34,6 +35,12 @@
     }
 }
 - (void)updateData{
+    if (![NetWorkConnection IsEnableConnection]) {
+        if (self.movieDelegate&&[self.movieDelegate respondsToSelector:@selector(showErrorNetworkMessage)]) {
+            [self.movieDelegate showErrorNetworkMessage];
+        }
+        return;
+    }
     if (self.delegate&&[self.delegate respondsToSelector:@selector(showLoadingDataAnimatial)]) {
         [self.delegate showLoadingDataAnimatial];
     }

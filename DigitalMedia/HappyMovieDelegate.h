@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @protocol HappyMovieDelegate <NSObject>
--(void)selectedItemWithModel:(id)entity type:(int)type sender:(id)sender;
+- (void)selectedItemWithModel:(id)entity type:(int)type sender:(id)sender;
+- (void)showErrorNetworkMessage;
 @end

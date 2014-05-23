@@ -144,6 +144,22 @@
         self.navigationItem.rightBarButtonItem=nil;
     }
 }
+#pragma mark - 重写事件
+-(void) showErrorViewAnimated:(void (^)(AnimateErrorView *errorView))process{
+    CCSegmentedControl *segments=(CCSegmentedControl*)[self.view viewWithTag:200];
+    AnimateErrorView *errorView = [self errorView];
+    if (process) {
+        process(errorView);
+    }
+    [self.view insertSubview:errorView belowSubview:segments];
+
+    CGRect r=errorView.frame;
+    r.origin.y=segments.frame.size.height;
+    [UIView animateWithDuration:0.5f animations:^{
+        errorView.frame=r;
+    }];
+}
+#pragma mark -HappyMovieDelegate Methods
 -(void)selectedItemWithModel:(id)entity type:(int)type sender:(id)sender{
     if (type==1) {//幸福宜蘭
         HappyEland *mod=(HappyEland*)entity;
@@ -161,6 +177,9 @@
         
     }
 
+}
+- (void)showErrorNetworkMessage{
+    [self showErrorNetWorkNotice:nil];
 }
 #pragma mark -
 #pragma mark UIScrollViewDelegate
@@ -250,6 +269,8 @@
         self.refreshing=NO;
     }
     if (![self hasNewWork]) {
+        [_refrshTable tableViewDidFinishedLoading];
+        _refrshTable.reachedTheEnd  = NO;
         [self showErrorNetWorkNotice:nil];
         return;
     }
@@ -295,7 +316,10 @@
                 [_refrshTable endUpdates];
             }
         }else{
-            [self failureInits];
+            self.metaHelper.pager.CurPage--;
+            [self showErrorViewWithHide:^(AnimateErrorView *errorView) {
+                errorView.labelTitle.text=@"沒有返回數據!";
+            } completed:nil];
         }
     } failure:^{
         [self failureInits];

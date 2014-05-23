@@ -19,4 +19,22 @@
     }
     return @"";
 }
+//資料別 1:圖片； 2：影音；3：聲音；4：檔案
+- (NSString*)dataTypeName{
+    NSString *result=@"圖片";
+    switch ([self.DTYPE intValue]) {
+        case 2:
+            result=@"影音";
+            break;
+        case 3:
+            result=@"聲音";
+            break;
+        case 4:
+            result=@"檔案";
+            break;
+        default:
+            break;
+    }
+    return result;
+}
 @end

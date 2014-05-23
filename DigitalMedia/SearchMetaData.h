@@ -28,4 +28,5 @@
 @property (nonatomic,copy) NSString *Views;//阅读数量
 
 @property (nonatomic,readonly) NSString *formatDateText;
+@property (nonatomic,readonly) NSString *dataTypeName;
 @end

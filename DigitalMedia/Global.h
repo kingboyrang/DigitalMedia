@@ -48,6 +48,7 @@
 #define defaultBDeviceFont [UIFont fontWithName:defaultDeviceFontName size:16]
 #define defaultSDeviceFont [UIFont fontWithName:defaultDeviceFontName size:14]
 #define defaultSmallFont [UIFont fontWithName:@"Courier" size:14]
+#define defaultButtonBgColor @"5094a8"
 
 //数据库配置路径
 //#define HEDBPath [[NSBundle mainBundle] pathForResource:@"HsinchuElderly" ofType:@"sqlite"]

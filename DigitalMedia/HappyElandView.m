@@ -9,6 +9,7 @@
 #import "HappyElandView.h"
 #import "ASIServiceHTTPRequest.h"
 #import "HappyEland.h"
+#import "NetWorkConnection.h"
 @interface HappyElandView ()
 - (void)updateData;
 @end
@@ -33,6 +34,12 @@
     
 }
 - (void)updateData{
+    if (![NetWorkConnection IsEnableConnection]) {
+        if (self.delegate&&[self.delegate respondsToSelector:@selector(showErrorNetworkMessage)]) {
+            [self.delegate showErrorNetworkMessage];
+        }
+        return;
+    }
     ASIServiceArgs *args=[[ASIServiceArgs alloc] init];
     args.methodName=@"GetCategoryList";
     ASIServiceHTTPRequest *request=[ASIServiceHTTPRequest requestWithArgs:args];

@@ -215,7 +215,6 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextSetFillColorWithColor(context, self.superview.superview.backgroundColor.CGColor);
-    NSLog(@"r=%f,g=%f,b=%f",self.superview.superview.backgroundColor.red*255,self.superview.superview.backgroundColor.green*255,self.superview.superview.backgroundColor.blue*255);
     CGContextFillRect(context, rect);
     
     /**< Background */

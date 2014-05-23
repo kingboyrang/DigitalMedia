@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JobTopView.h"
-@interface JobAreaViewController : BasicViewController
-@property (nonatomic,strong) JobTopView *topView;
+#import "LightMenuBar.h"
+#import "LightMenuBarDelegate.h"
+@interface JobAreaViewController : BasicViewController<LightMenuBarDelegate>
+@property (nonatomic,retain) LightMenuBar *menuBar;
 @end

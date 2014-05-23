@@ -133,6 +133,23 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark - 重写事件
+-(void) showErrorViewAnimated:(void (^)(AnimateErrorView *errorView))process{
+    CountyZoneTopView *topView=(CountyZoneTopView*)[self.view viewWithTag:100];
+    AnimateErrorView *errorView = [self errorView];
+    if (process) {
+        process(errorView);
+    }
+    [self.view addSubview:errorView];
+    [self.view sendSubviewToBack:errorView];
+    [self.view sendSubviewToBack:_refrshTable];
+    
+    CGRect r=errorView.frame;
+    r.origin.y=topView.frame.size.height;
+    [UIView animateWithDuration:0.5f animations:^{
+        errorView.frame=r;
+    }];
+}
 - (void)buttonSearchClick:(UIButton*)btn{
     [self.mySearchBar.searchField becomeFirstResponder];
 }
@@ -149,6 +166,8 @@
         self.refreshing=NO;
     }
     if (![self hasNewWork]) {
+        [_refrshTable tableViewDidFinishedLoading];
+        _refrshTable.reachedTheEnd  = NO;
         [self showErrorNetWorkNotice:nil];
         return;
     }
@@ -156,7 +175,7 @@
         [self.metaHelper.pager loadNextPage];
         [self loadSourceData];//加载数据
     }else{
-        [_refrshTable tableViewDidFinishedLoadingWithMessage:@"沒有了哦.."];
+        [_refrshTable tableViewDidFinishedLoadingWithMessage:@"沒有了哦!"];
         _refrshTable.reachedTheEnd  = YES;
     }
 }

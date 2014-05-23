@@ -67,7 +67,23 @@
     [self.view addSubview:_newsScrollView];
     [self.view sendSubviewToBack:_newsScrollView];
 }
+#pragma mark - 重写事件
+-(void) showErrorViewAnimated:(void (^)(AnimateErrorView *errorView))process{
+  
+    AnimateErrorView *errorView = [self errorView];
+    if (process) {
+        process(errorView);
+    }
+    [self.view addSubview:errorView];
+    [self.view sendSubviewToBack:errorView];
+    [self.view sendSubviewToBack:_newsScrollView];
 
+    CGRect r=errorView.frame;
+    r.origin.y=_menuBar.frame.size.height;
+    [UIView animateWithDuration:0.5f animations:^{
+        errorView.frame=r;
+    }];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

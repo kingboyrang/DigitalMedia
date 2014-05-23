@@ -10,10 +10,9 @@
 #import "ASIServiceHTTPRequest.h"
 #import "JobAreaList.h"
 #import "JobDetailViewController.h"
-@interface JobAreaViewController ()<UIScrollViewDelegate,JobAreaDelegate>{
-    int currentPage;
-    BOOL pageControlUsed;
-}
+#define JobAreaSoureData [NSArray arrayWithObjects:@"職缺資訊", @"求材活動資訊", nil]
+
+@interface JobAreaViewController ()<UIScrollViewDelegate,JobAreaDelegate>
 @property (nonatomic,strong) UIScrollView *nibScrollView;
 @property (nonatomic,strong) JobAreaList *couponTableView;
 @property (nonatomic,strong) JobAreaList *groupbuyTableView;
@@ -34,13 +33,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _topView=[[JobTopView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
-    [_topView.leftButton addTarget:self action:@selector(couponButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    [_topView.rightButton addTarget:self action:@selector(groupbuyButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_topView];
-    
+    _menuBar= [[LightMenuBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44) andStyle:LightMenuBarStyleItem];
+    _menuBar.delegate = self;
+    _menuBar.bounces = YES;
+    _menuBar.selectedItemIndex = 0;
+    if (DeviceIsPad) {
+        UIView *viewBg=[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
+        viewBg.backgroundColor=[UIColor colorFromHexRGB:@"f0f0f0"];
+        [viewBg addSubview:_menuBar];
+        [self.view addSubview:viewBg];
+    }else{
+        [self.view addSubview:_menuBar];
+    }
     CGRect r=self.view.bounds;
-    r.origin.y=_topView.frame.size.height;
+    r.origin.y=_menuBar.frame.size.height;
     r.size.height-=[self topHeight]+r.origin.y;
     
     self.nibScrollView=[[UIScrollView alloc] initWithFrame:r];
@@ -64,7 +70,6 @@
     [self.view addSubview:self.nibScrollView];
     
     //公用
-    currentPage = 0;
     self.pageControl=[[UIPageControl alloc] initWithFrame:CGRectMake((self.view.bounds.size.width-100)/2.0, 0, 100, 30)];
     self.pageControl.currentPage=0;
     self.pageControl.numberOfPages=2;
@@ -73,6 +78,23 @@
     self.pageControl.hidden=YES;
     
     [self.couponTableView loadingData];
+}
+#pragma mark - 重写事件
+-(void) showErrorViewAnimated:(void (^)(AnimateErrorView *errorView))process{
+   
+    AnimateErrorView *errorView = [self errorView];
+    if (process) {
+        process(errorView);
+    }
+    [self.view addSubview:errorView];
+    [self.view sendSubviewToBack:errorView];
+    [self.view sendSubviewToBack:self.nibScrollView];
+    
+    CGRect r=errorView.frame;
+    r.origin.y=_menuBar.frame.size.height;
+    [UIView animateWithDuration:0.5f animations:^{
+        errorView.frame=r;
+    }];
 }
 #pragma mark- JobAreaDelegate Methods
 - (void)showLoadFailure:(id)sender{
@@ -88,47 +110,6 @@
         [self.navigationController pushViewController:detail animated:YES];
     }
 }
-#pragma mark-
-#pragma mark 界面按钮事件
-- (void) btnActionShow
-{
-    if (currentPage == 0) {
-        [self couponButtonAction:_topView.leftButton];
-    }
-    else{
-        [self groupbuyButtonAction:_topView.rightButton];
-    }
-}
-- (void) couponButtonAction:(UIButton*)btn
-{
-    //[self.couponButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];//此时选中
-    //[self.groupbuyButton setTitleColor:[UIColor colorWithRed:(220/255.0) green:(220/255.0) blue:(220/255.0) alpha:1] forState:UIControlStateNormal];//此时未被选中
-    
-    CGRect r=_topView.labLine.frame;
-    r.origin.x=0;
-    [UIView beginAnimations:nil context:nil];//动画开始
-    [UIView setAnimationDuration:0.3];
-    _topView.labLine.frame=r;
-    [self.nibScrollView setContentOffset:CGPointMake(self.view.bounds.size.width*0, 0)];//页面滑动
-    
-    [UIView commitAnimations];
-    [self.couponTableView loadingData];
-}
-
-- (void) groupbuyButtonAction:(UIButton*)btn
-{
-    //[self.groupbuyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];//此时选中
-    //[self.couponButton setTitleColor:[UIColor colorWithRed:(220/255.0) green:(220/255.0) blue:(220/255.0) alpha:1] forState:UIControlStateNormal];//此时未被选中
-    
-    CGRect r=_topView.labLine.frame;
-    r.origin.x=self.view.bounds.size.width/2;
-    [UIView beginAnimations:nil context:nil];//动画开始
-    [UIView setAnimationDuration:0.3];
-    _topView.labLine.frame=r;
-    [self.nibScrollView setContentOffset:CGPointMake(self.view.bounds.size.width*1, 0)];
-    [UIView commitAnimations];
-    [self.groupbuyTableView loadingData];
-}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -138,26 +119,63 @@
 // At the end of scroll animation, reset the boolean used when scrolls originate from the UIPageControl
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     
-    CGFloat pageWidth = self.nibScrollView.frame.size.width;
-    int page = floor((self.nibScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    
-    self.pageControl.currentPage = page;
-    currentPage = page;
-    pageControlUsed = NO;
-    [self btnActionShow];
+    //更新UIPageControl的当前页
+    CGPoint offset = scrollView.contentOffset;
+    CGRect bounds = scrollView.frame;
+    NSInteger page=offset.x / bounds.size.width;
+    _menuBar.selectedItemIndex=page;
+}
+#pragma mark LightMenuBarDelegate
+- (NSUInteger)itemCountInMenuBar:(LightMenuBar *)menuBar {
+    return [JobAreaSoureData count];
+}
+- (NSString *)itemTitleAtIndex:(NSUInteger)index inMenuBar:(LightMenuBar *)menuBar {
+    return [JobAreaSoureData objectAtIndex:index];
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    
-    //暂不处理 - 其实左右滑动还有包含开始等等操作，这里不做介绍
+- (void)itemSelectedAtIndex:(NSUInteger)index inMenuBar:(LightMenuBar *)menuBar {
+    if (index==0) {
+        [self.couponTableView loadingData];
+    }else{
+        [self.groupbuyTableView loadingData];
+    }
+    [self.nibScrollView setContentOffset:CGPointMake(index*self.nibScrollView.bounds.size.width,0) animated:YES];
 }
 
-- (BOOL)touchesShouldBegin:(NSSet *)touches withEvent:(UIEvent *)event inContentView:(UIView *)view
-{
-    return YES;
+//< Optional
+- (CGFloat)itemWidthAtIndex:(NSUInteger)index inMenuBar:(LightMenuBar *)menuBar {
+    return 320.0f/2;
 }
-- (BOOL)touchesShouldCancelInContentView:(UIView *)view
-{
-    return NO;
+/****************************************************************************/
+//< For Background Area
+/****************************************************************************/
+
+/**< Top and Bottom Padding, by Default 5.0f */
+- (CGFloat)verticalPaddingInMenuBar:(LightMenuBar *)menuBar {
+    return 0.0f;
+}
+
+/**< Left and Right Padding, by Default 5.0f */
+- (CGFloat)horizontalPaddingInMenuBar:(LightMenuBar *)menuBar {
+    return 0.0f;
+}
+
+/**< Corner Radius of the background Area, by Default 5.0f */
+- (CGFloat)cornerRadiusOfBackgroundInMenuBar:(LightMenuBar *)menuBar {
+    return 0.0f;
+}
+
+- (UIColor *)colorOfBackgroundInMenuBar:(LightMenuBar *)menuBar {
+    return [UIColor colorFromHexRGB:@"f0f0f0"];//5094a8 f0f0f0
+}
+- (UIFont *)fontOfTitleInMenuBar:(LightMenuBar *)menuBar{
+    return defaultBDeviceFont;
+}
+- (UIColor *)colorOfTitleNormalInMenuBar:(LightMenuBar *)menuBar{
+    return [UIColor colorFromHexRGB:@"5094a8"];
+}
+//选中时的button颜色
+- (UIColor *)colorOfButtonHighlightInMenuBar:(LightMenuBar *)menuBar{
+    return [UIColor colorFromHexRGB:@"5094a8"];
 }
 @end

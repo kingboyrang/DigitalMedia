@@ -11,6 +11,7 @@
 #import "DMSearchBar.h"
 #import "TKHotMovieCell.h"
 #import "ASIServiceHTTPRequest.h"
+#import "MetaDetailViewController.h"
 @interface HotMovieViewController ()<UISearchBarDelegate,UISearchDisplayDelegate>
 @property (nonatomic,strong) DMSearchBar *mySearchBar;
 @property (nonatomic,strong) UISearchDisplayController *movieDisplay;
@@ -132,6 +133,8 @@
         self.refreshing=NO;
     }
     if (![self hasNewWork]) {
+        [_refrshTable tableViewDidFinishedLoading];
+        _refrshTable.reachedTheEnd  = NO;
         [self showErrorNetWorkNotice:nil];
         return;
     }
@@ -178,7 +181,10 @@
                 [_refrshTable endUpdates];
             }
         }else{
-            [self failureInits];
+            self.metaHelper.pager.CurPage--;
+            [self showErrorViewWithHide:^(AnimateErrorView *errorView) {
+                errorView.labelTitle.text=@"沒有返回數據!";
+            } completed:nil];
         }
     } failure:^{
         [self failureInits];
@@ -248,6 +254,12 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 89;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    MetaDetailViewController *metaDetail=[[MetaDetailViewController alloc] init];
+    metaDetail.Entity=self.listData[indexPath.row];
+    [self.navigationController pushViewController:metaDetail animated:YES];
 }
 #pragma mark - PullingRefreshTableViewDelegate
 //下拉加载

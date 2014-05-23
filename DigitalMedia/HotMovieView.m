@@ -44,7 +44,11 @@
         self.refreshing=NO;
     }
     if (![NetWorkConnection IsEnableConnection]) {
-        //[self showErrorNetWorkNotice:nil];
+        [_refrshTable tableViewDidFinishedLoading];
+        _refrshTable.reachedTheEnd  = NO;
+        if (self.delegate&&[self.delegate respondsToSelector:@selector(showErrorNetworkMessage)]) {
+            [self.delegate showErrorNetworkMessage];
+        }
         return;
     }
     if (self.metaHelper.pager.hasNextPage) {
@@ -90,7 +94,7 @@
                 [_refrshTable endUpdates];
             }
         }else{
-            [self failureInits];
+           self.metaHelper.pager.CurPage--;
         }
     } failure:^{
         [self failureInits];
