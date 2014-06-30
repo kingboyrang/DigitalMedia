@@ -57,6 +57,8 @@
     
      size=[_rightLabel.text textSize:defaultBDeviceFont withWidth:self.frame.size.width];
      _rightLabel.frame=CGRectMake(_rightMenuItem.frame.origin.x+_rightMenuItem.frame.size.width/2-size.width/2, _leftLabel.frame.origin.y,size.width, size.height);
+    
+    
 }
 
 @end

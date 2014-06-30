@@ -30,11 +30,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    CGFloat h=DeviceIsPad?256.0f:128.0f;
+    CGFloat h=((DeviceIsPad?256.0f:128.0f)+26)*2;
     CGRect r=self.view.bounds;
-    r.size.height=h*2+30*2;
-    //r.origin.y=DeviceIsPad?50:20;
-    r.origin.y=(self.view.bounds.size.height-[self topHeight]-r.size.height-30)/2;
+    r.origin.y=(self.view.bounds.size.height-[self topHeight]-h)/2-10;
+    r.size.height-=[self topHeight]+r.origin.y;
+    
     _menuTable=[[UITableView alloc] initWithFrame:r style:UITableViewStylePlain];
     _menuTable.bounces=NO;
     _menuTable.dataSource=self;
@@ -96,6 +96,6 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     CGFloat h=DeviceIsPad?256.0f:128.0f;
-    return h+30;
+    return h+26;
 }
 @end
