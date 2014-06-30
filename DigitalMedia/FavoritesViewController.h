@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MovieStoreHelper.h"
+@interface FavoritesViewController : BasicViewController<UITableViewDataSource,UITableViewDelegate,UIDocumentInteractionControllerDelegate>{
 
-@interface FavoritesViewController : UIViewController
-
+}
+@property (nonatomic,strong) UITableView *movieTable;
+@property (nonatomic,strong) UIDocumentInteractionController *documentController;
+@property (nonatomic,strong) MovieStoreHelper *storeHelper;
 @end

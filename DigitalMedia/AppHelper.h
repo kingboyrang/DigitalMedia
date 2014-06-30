@@ -12,4 +12,6 @@
 + (void)openUrl:(NSString*)url;
 + (void)updateAccess;
 + (void)asyncPushWithComplete:(void(^)(NSArray *source))completed;
+
++(void)addNoBackupAttribute:(NSURL *)URL;
 @end

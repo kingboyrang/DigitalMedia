@@ -9,19 +9,27 @@
 //http://60.251.51.217/dmc.eland/admin/MDC.asmx
 //http://60.251.51.217/Pushs.Admin/WebServices/Push.asmx
 
+//http://192.168.123.150/dmc/MDC.asmx
+//http://192.168.123.150/Pushs.Admin/WebServices/Push.asmx
+
+
 #define DataAccessURL @"http://60.251.51.217/Pushs.Admin/WebServices/CasesAdminURL.aspx?get=elandmc"
 
 #define DataWebPath [[NSBundle mainBundle] pathForResource:@"Config" ofType:@"plist"]
 #define DataServicesSource [NSArray arrayWithContentsOfFile:DataWebPath]
-#define DataCaseUrlPre [DataServicesSource objectAtIndex:0]
-#define DataPushUrlPre [DataServicesSource objectAtIndex:1]
+//#define DataCaseUrlPre [DataServicesSource objectAtIndex:0]
+//#define DataPushUrlPre [DataServicesSource objectAtIndex:1]
+
+#define DataCaseUrlPre @"http://192.168.123.150/dmc/"
+#define DataPushUrlPre @"http://192.168.123.150/Pushs.Admin/"
 
 //测试
 #define defaultWebServiceUrl [NSString stringWithFormat:@"%@MDC.asmx",DataCaseUrlPre]
 #define defaultWebServiceNameSpace @"http://tempuri.org/"
 //推播信息webservice
 #define PushWebServiceUrl [NSString stringWithFormat:@"%@WebServices/Push.asmx",DataPushUrlPre]
-#define PushWebServiceNameSpace @"http://CIRMSG.e-land.gov.tw/"
+//#define PushWebServiceNameSpace @"http://CIRMSG.e-land.gov.tw/"
+#define PushWebServiceNameSpace @"http://tempuri.org/"
 
 
 //获取设备的物理大小
@@ -67,6 +75,8 @@
 #define CountyZoneFacebookURL @"http://www.facebook.com/pages/幸福宜蘭-林聰賢/150474111655916"
 #define CountyZonePlurkURL @"http://www.plurk.com/YilanFirst"
 
+//下载的文件保存路径
+#define DownFileFolderPath	 [NSString stringWithFormat:@"%@/MediaCenter",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]]
 
 
 

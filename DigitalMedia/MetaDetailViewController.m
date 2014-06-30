@@ -12,6 +12,8 @@
 #import "MetaDataBar.h"
 #import "MovieScroll.h"
 #import "ImageScroll.h"
+#import "FileDownloadManager.h"
+#import "MovieStore.h"
 @interface MetaDetailViewController ()<MovieDataSrcollDelegate>
 
 @end
@@ -30,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.fileHelper=[[FileHttpRequest alloc] initWithDelegate:self];
     
      CGFloat topY=0,h=0;
     //資料別 1:圖片； 2：影音；3：聲音；4：檔案
@@ -68,9 +71,10 @@
             if (self.subMetas&&[self.subMetas count]>0) {
                 [_dataTable loadingSourceDataWithModel:self.subMetas[0] withModel:self.Entity];
             }
+           
             /********加载资料********/
             if (type==1) {//图片
-                ImageScroll *imageScroll=[[ImageScroll alloc] initWithData:[self movieURLs] frame:CGRectMake(0, 0, self.view.bounds.size.width, h)];
+                ImageScroll *imageScroll=[[ImageScroll alloc] initWithData:[self moviesWithType:type] frame:CGRectMake(0, 0, self.view.bounds.size.width, h)];
                 imageScroll.tag=600;
                 imageScroll.delegate=self;
                 imageScroll.backgroundColor=[UIColor grayColor];
@@ -78,7 +82,7 @@
             }else if(type==4){//檔案
                 
             }else{
-                MovieScroll *moviewScroll=[[MovieScroll alloc] initWithData:[self movieURLs] youtube:[self yuTuBeURLs] frame:CGRectMake(0, 0, self.view.bounds.size.width, h)];
+                MovieScroll *moviewScroll=[[MovieScroll alloc] initWithData:[self moviesWithType:type] youtube:[self yuTuBeURLs] frame:CGRectMake(0, 0, self.view.bounds.size.width, h)];
                 moviewScroll.tag=600;
                 moviewScroll.delegate=self;
                 [self.view addSubview:moviewScroll];
@@ -93,20 +97,22 @@
         [self hideLoadingFailedWithTitle:@"加載失敗!" completed:nil];
     }];
 }
-- (NSArray*)movieURLs{
-    int type=[self.Entity.DTYPE intValue];
+- (NSArray*)moviesWithType:(int)type{
     NSMutableArray *source=[NSMutableArray array];
     if ([self.subMetas count]==0) {
         return source;
     }
     for (SubMetaData *item in self.subMetas) {
-        if (type==1) {
+        if (type==1) {//1:圖片
             [source addObject:item.ImgPath];
-        }else{
-            if (type==3) {
-                 [source addObject:item.MP4Path];
-            }
         }
+        if (type==2) {//影音
+            [source addObject:item.MP4Path];
+        }
+        if (type==3) {//聲音
+            [source addObject:item.DownLoadPath];
+        }
+        
     }
     return source;
 }
@@ -122,7 +128,6 @@
             if (item.YoutubeVideo&&[item.YoutubeVideo length]>0) {
                  [source addObject:[NSDictionary dictionaryWithObjectsAndKeys:item.YoutubeVideo,@"value",[NSString stringWithFormat:@"%d",index],@"key", nil]];
             }
-            
         }
         index++;
     }
@@ -132,6 +137,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+#pragma mark -FileHttpRequestDelegate Methods
+-(void)startFileDownload:(NSString*)url withFileName:(NSString*)fileName{
+    MovieStore *entity=[[MovieStore alloc] init];
+    entity.Guid=[NSString createGUID];
+    entity.DTYPE=self.Entity.DTYPE;
+    entity.Dept=self.Entity.DEPT_NAME;
+    entity.Name=[fileName lastPathComponent];
+    //开始下载
+    [[FileDownloadManager shareInitialization] downloadFile:url path:fileName withEntity:entity];
 }
 #pragma mark -MovieDataSrcollDelegate Methods
 - (void)selectedItemWithIndex:(int)index sender:(id)sender{
@@ -174,6 +189,32 @@
 }
 //文件下载
 - (void)buttonDownloadClick:(UIButton*)btn{
-    
+    if ([self.view viewWithTag:600]) {
+        id v=[self.view viewWithTag:600];
+        int selectedRow;
+        if ([v isKindOfClass:[MovieScroll class]]) {//影音
+            MovieScroll *item=(MovieScroll*)v;
+            selectedRow=item.selectItemIndex;
+        }else{//圖片
+            ImageScroll *scroll=(ImageScroll*)v;
+            selectedRow=scroll.selectItemIndex;
+        }
+        if (self.subMetas&&[self.subMetas count]>0) {
+            //資料別 1:圖片； 2：影音；3：聲音；4：檔案 DownLoadPath
+            int type=[self.Entity.DTYPE intValue];
+            SubMetaData *entity=self.subMetas[selectedRow];
+            NSString *movieUrl=entity.DownLoadPath;
+            if (type==2) {
+                movieUrl=entity.MP4Path;
+            }
+            
+            NSString *customFileName=[NSString stringWithFormat:@"%@_%d",entity.C_NAME,selectedRow];
+            self.fileHelper.customDownloadFileName=customFileName;
+            self.fileHelper.movieType=self.Entity.DTYPE;
+            [self.fileHelper startFileRequest:movieUrl];
+
+        }
+       
+    }
 }
 @end

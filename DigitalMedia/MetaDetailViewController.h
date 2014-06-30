@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "SearchMetaData.h"
 #import "MetaDataTable.h"
-@interface MetaDetailViewController : BasicViewController
+#import "FileHttpRequest.h"
+@interface MetaDetailViewController : BasicViewController<FileHttpRequestDelegate>
 @property (nonatomic,retain) SearchMetaData *Entity;
 @property (nonatomic,retain) NSArray *subMetas;
 @property (nonatomic,retain) MetaDataTable *dataTable;
+@property (nonatomic,strong) FileHttpRequest *fileHelper;
 @end

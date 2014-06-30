@@ -20,6 +20,7 @@
 #import "TKMetaDataCell.h"
 #import "ASIServiceHTTPRequest.h"
 #import "UIBarButtonItem+TPCategory.h"
+#import "MetaDetailViewController.h"
 @interface HappyMoviewController ()<HappyMovieDelegate,UIScrollViewDelegate,UISearchBarDelegate,UISearchDisplayDelegate>
 @property (nonatomic,strong) DMSearchBar *mySearchBar;
 @property (nonatomic,strong) UISearchDisplayController *movieDisplay;
@@ -174,7 +175,9 @@
         [self.navigationController pushViewController:orgenMovie animated:YES];
     }
     if (type==3) {//热门影音
-        
+        MetaDetailViewController *detail=[[MetaDetailViewController alloc] init];
+        detail.Entity=entity;
+        [self.navigationController pushViewController:detail animated:YES];
     }
 
 }
@@ -389,6 +392,12 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 70;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    MetaDetailViewController *detail=[[MetaDetailViewController alloc] init];
+    detail.Entity=self.listData[indexPath.row];
+    [self.navigationController pushViewController:detail animated:YES];
 }
 #pragma mark - PullingRefreshTableViewDelegate
 //下拉加载

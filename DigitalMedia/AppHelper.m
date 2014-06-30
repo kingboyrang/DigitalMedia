@@ -93,4 +93,38 @@
         }];
     }
 }
+
+//表示下载的文件不同步到iCloud and iTunes里面
++(BOOL)addSkipBackupAttributeToItemAtURL:(NSURL *)URL{
+    assert([[NSFileManager defaultManager] fileExistsAtPath: [URL path]]);
+    
+    NSError *error = nil;
+    BOOL success = [URL setResourceValue: [NSNumber numberWithBool: YES]
+                                  forKey: NSURLIsExcludedFromBackupKey error: &error];
+    if(!success){
+        NSLog(@"Error excluding %@ from backup %@", [URL lastPathComponent], error);
+    }
+    return success;
+}
+//表示下载的文件不同步到iCloud and iTunes里面 for 5.0.1 以前
++(BOOL)addSkipBackupAttributeToItemAtURL5:(NSURL *)URL{
+    assert([[NSFileManager defaultManager] fileExistsAtPath: [URL path]]);
+    
+    const char* filePath = [[URL path] fileSystemRepresentation];
+    
+    const char* attrName = "com.apple.MobileBackup";
+    u_int8_t attrValue = 1;
+    
+    int result = setxattr(filePath, attrName, &attrValue, sizeof(attrValue), 0, 0);
+    return result == 0;
+}
++(void)addNoBackupAttribute:(NSURL *)URL{
+    float fVersion=[[[UIDevice currentDevice] systemVersion] floatValue];
+    if (fVersion < 5.1) {
+        [self addSkipBackupAttributeToItemAtURL5:URL];
+    }else{
+        [self addSkipBackupAttributeToItemAtURL:URL];
+    }
+}
+
 @end

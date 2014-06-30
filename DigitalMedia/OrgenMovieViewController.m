@@ -11,6 +11,7 @@
 #import "SearchMetaData.h"
 #import "ASIServiceHTTPRequest.h"
 #import "Department.h"
+#import "MetaDetailViewController.h"
 @interface OrgenMovieViewController ()
 
 @end
@@ -95,4 +96,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 70;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    MetaDetailViewController *detail=[[MetaDetailViewController alloc] init];
+    detail.Entity=self.listData[indexPath.row];
+    [self.navigationController pushViewController:detail animated:YES];
+}
+
 @end

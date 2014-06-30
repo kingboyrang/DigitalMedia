@@ -25,6 +25,7 @@
     BasicTabBarController *tabbar=[[BasicTabBarController alloc] init];
     self.window.rootViewController=tabbar;
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 							

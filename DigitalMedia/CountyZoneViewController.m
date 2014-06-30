@@ -13,6 +13,7 @@
 #import "UIImage+TPCategory.h"
 #import "DMSearchBar.h"
 #import "TKMetaDataCell.h"
+#import "MetaDetailViewController.h"
 @interface CountyZoneViewController ()<UISearchBarDelegate,UISearchDisplayDelegate>
 @property (nonatomic,strong) DMSearchBar *mySearchBar;
 @property (nonatomic,strong) UISearchDisplayController *movieDisplay;
@@ -282,6 +283,14 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 70;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (self.refrshTable==tableView) {
+        MetaDetailViewController *detail=[[MetaDetailViewController alloc] init];
+        detail.Entity=self.listData[indexPath.row];
+        [self.navigationController pushViewController:detail animated:YES];
+    }
 }
 #pragma mark - PullingRefreshTableViewDelegate
 //下拉加载

@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0146FEB9196142E400ED58E6 /* FileHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0146FEB8196142E400ED58E6 /* FileHttpRequest.m */; };
+		0146FEC0196142F200ED58E6 /* PreviewFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0146FEBB196142F200ED58E6 /* PreviewFileManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0146FEC1196142F200ED58E6 /* DownLoadArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = 0146FEBD196142F200ED58E6 /* DownLoadArgs.m */; };
+		0146FEC2196142F300ED58E6 /* LLFileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0146FEBF196142F200ED58E6 /* LLFileVC.m */; };
+		0146FEC7196142FE00ED58E6 /* FileDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0146FEC4196142FE00ED58E6 /* FileDownloadManager.m */; };
+		0146FEC8196142FE00ED58E6 /* OpenHttpFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0146FEC6196142FE00ED58E6 /* OpenHttpFileViewController.m */; };
+		0146FECB1961478E00ED58E6 /* MovieStoreHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0146FECA1961478E00ED58E6 /* MovieStoreHelper.m */; };
+		0146FECE19614A6700ED58E6 /* MovieStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0146FECD19614A6700ED58E6 /* MovieStore.m */; };
+		0146FED119614B8F00ED58E6 /* PreviewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0146FED019614B8F00ED58E6 /* PreviewDataSource.m */; };
+		0146FED41961594800ED58E6 /* NSDate+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0146FED31961594800ED58E6 /* NSDate+TPCategory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0146FED61961616300ED58E6 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0146FED51961616300ED58E6 /* QuickLook.framework */; };
 		0150B8D21925F4C1005DEAAC /* TKLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0150B8D11925F4C1005DEAAC /* TKLabelCell.m */; };
 		0150B8D51925F61C005DEAAC /* TKLabelLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0150B8D41925F61C005DEAAC /* TKLabelLabelCell.m */; };
 		0150B8DE192600FE005DEAAC /* systemIntroduce.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0150B8DD192600FE005DEAAC /* systemIntroduce.txt */; };
@@ -169,6 +180,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0146FEB7196142E400ED58E6 /* FileHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHttpRequest.h; sourceTree = "<group>"; };
+		0146FEB8196142E400ED58E6 /* FileHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHttpRequest.m; sourceTree = "<group>"; };
+		0146FEBA196142F200ED58E6 /* PreviewFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewFileManager.h; sourceTree = "<group>"; };
+		0146FEBB196142F200ED58E6 /* PreviewFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewFileManager.m; sourceTree = "<group>"; };
+		0146FEBC196142F200ED58E6 /* DownLoadArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownLoadArgs.h; sourceTree = "<group>"; };
+		0146FEBD196142F200ED58E6 /* DownLoadArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownLoadArgs.m; sourceTree = "<group>"; };
+		0146FEBE196142F200ED58E6 /* LLFileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLFileVC.h; sourceTree = "<group>"; };
+		0146FEBF196142F200ED58E6 /* LLFileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLFileVC.m; sourceTree = "<group>"; };
+		0146FEC3196142FE00ED58E6 /* FileDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDownloadManager.h; sourceTree = "<group>"; };
+		0146FEC4196142FE00ED58E6 /* FileDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDownloadManager.m; sourceTree = "<group>"; };
+		0146FEC5196142FE00ED58E6 /* OpenHttpFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenHttpFileViewController.h; sourceTree = "<group>"; };
+		0146FEC6196142FE00ED58E6 /* OpenHttpFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenHttpFileViewController.m; sourceTree = "<group>"; };
+		0146FEC91961478E00ED58E6 /* MovieStoreHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieStoreHelper.h; sourceTree = "<group>"; };
+		0146FECA1961478E00ED58E6 /* MovieStoreHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieStoreHelper.m; sourceTree = "<group>"; };
+		0146FECC19614A6700ED58E6 /* MovieStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieStore.h; sourceTree = "<group>"; };
+		0146FECD19614A6700ED58E6 /* MovieStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieStore.m; sourceTree = "<group>"; };
+		0146FECF19614B8F00ED58E6 /* PreviewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewDataSource.h; sourceTree = "<group>"; };
+		0146FED019614B8F00ED58E6 /* PreviewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewDataSource.m; sourceTree = "<group>"; };
+		0146FED21961594800ED58E6 /* NSDate+TPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TPCategory.h"; sourceTree = "<group>"; };
+		0146FED31961594800ED58E6 /* NSDate+TPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TPCategory.m"; sourceTree = "<group>"; };
+		0146FED51961616300ED58E6 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		0150B8D01925F4C1005DEAAC /* TKLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLabelCell.h; sourceTree = "<group>"; };
 		0150B8D11925F4C1005DEAAC /* TKLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLabelCell.m; sourceTree = "<group>"; };
 		0150B8D31925F61C005DEAAC /* TKLabelLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLabelLabelCell.h; sourceTree = "<group>"; };
@@ -459,6 +491,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0146FED61961616300ED58E6 /* QuickLook.framework in Frameworks */,
 				0189C4DD192F22CC002ED63A /* MediaPlayer.framework in Frameworks */,
 				01C94102192B042B0044AA2B /* MobileCoreServices.framework in Frameworks */,
 				01C94100192B040E0044AA2B /* libz.dylib in Frameworks */,
@@ -487,6 +520,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0146FEB6196142CF00ED58E6 /* FileDownload */ = {
+			isa = PBXGroup;
+			children = (
+				0146FECF19614B8F00ED58E6 /* PreviewDataSource.h */,
+				0146FED019614B8F00ED58E6 /* PreviewDataSource.m */,
+				0146FEC3196142FE00ED58E6 /* FileDownloadManager.h */,
+				0146FEC4196142FE00ED58E6 /* FileDownloadManager.m */,
+				0146FEC5196142FE00ED58E6 /* OpenHttpFileViewController.h */,
+				0146FEC6196142FE00ED58E6 /* OpenHttpFileViewController.m */,
+				0146FEBA196142F200ED58E6 /* PreviewFileManager.h */,
+				0146FEBB196142F200ED58E6 /* PreviewFileManager.m */,
+				0146FEBC196142F200ED58E6 /* DownLoadArgs.h */,
+				0146FEBD196142F200ED58E6 /* DownLoadArgs.m */,
+				0146FEBE196142F200ED58E6 /* LLFileVC.h */,
+				0146FEBF196142F200ED58E6 /* LLFileVC.m */,
+				0146FEB7196142E400ED58E6 /* FileHttpRequest.h */,
+				0146FEB8196142E400ED58E6 /* FileHttpRequest.m */,
+			);
+			name = FileDownload;
+			sourceTree = "<group>";
+		};
 		0150B8CE1925F47F005DEAAC /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -609,6 +663,8 @@
 				01C94168192C724D0044AA2B /* HappyEland.m */,
 				0189C4C9192EEBCF002ED63A /* SubMetaData.h */,
 				0189C4CA192EEBCF002ED63A /* SubMetaData.m */,
+				0146FECC19614A6700ED58E6 /* MovieStore.h */,
+				0146FECD19614A6700ED58E6 /* MovieStore.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -727,6 +783,8 @@
 				01C94128192B3F0D0044AA2B /* JobEmploymentHelper.m */,
 				01C94152192C3E7F0044AA2B /* WebNewsHelper.h */,
 				01C94153192C3E7F0044AA2B /* WebNewsHelper.m */,
+				0146FEC91961478E00ED58E6 /* MovieStoreHelper.h */,
+				0146FECA1961478E00ED58E6 /* MovieStoreHelper.m */,
 			);
 			name = DAL;
 			sourceTree = "<group>";
@@ -938,6 +996,7 @@
 		01E8E8DD1924AECD0071BC5D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0146FED51961616300ED58E6 /* QuickLook.framework */,
 				0189C4DC192F22CC002ED63A /* MediaPlayer.framework */,
 				01C94101192B042B0044AA2B /* MobileCoreServices.framework */,
 				01C940FF192B040E0044AA2B /* libz.dylib */,
@@ -1006,6 +1065,7 @@
 		01E8E9161924AF0B0071BC5D /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				0146FEB6196142CF00ED58E6 /* FileDownload */,
 				01C94186192C9E280044AA2B /* Blocks */,
 				01C94130192B5A230044AA2B /* NetWork */,
 				01C940C5192AE0AA0044AA2B /* DAL */,
@@ -1055,6 +1115,8 @@
 		01E8E9261924AFD50071BC5D /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				0146FED21961594800ED58E6 /* NSDate+TPCategory.h */,
+				0146FED31961594800ED58E6 /* NSDate+TPCategory.m */,
 				0189C520192F3EE5002ED63A /* UIImageView+DispatchLoad.h */,
 				0189C521192F3EE5002ED63A /* UIImageView+DispatchLoad.m */,
 				01C940B91929E7230044AA2B /* UIBarButtonItem+TPCategory.h */,
@@ -1255,12 +1317,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				01E8E9291924B0020071BC5D /* UIColor+TPCategory.m in Sources */,
+				0146FEC1196142F200ED58E6 /* DownLoadArgs.m in Sources */,
 				01C94126192B3D6C0044AA2B /* JobEmployment.m in Sources */,
 				0150B94019261715005DEAAC /* GDataXMLNode.m in Sources */,
 				01C94160192C541A0044AA2B /* HappyMoviewController.m in Sources */,
 				017D2F081925C3B000E1CC80 /* OrganViewController.m in Sources */,
 				01C940FE192B01330044AA2B /* ASIServiceHelper.m in Sources */,
 				01C940FB192B01330044AA2B /* ASIServiceArgs.m in Sources */,
+				0146FECE19614A6700ED58E6 /* MovieStore.m in Sources */,
 				01E8E96F192595B90071BC5D /* CountyZoneViewController.m in Sources */,
 				0150B8D21925F4C1005DEAAC /* TKLabelCell.m in Sources */,
 				01E8E9231924AF680071BC5D /* AnimateErrorView.m in Sources */,
@@ -1273,6 +1337,8 @@
 				0150B9511926231D005DEAAC /* FileHelper.m in Sources */,
 				01E8E8EF1924AECD0071BC5D /* AppDelegate.m in Sources */,
 				017D2EF91925B1BC00E1CC80 /* UIButton+TPCategory.m in Sources */,
+				0146FEC7196142FE00ED58E6 /* FileDownloadManager.m in Sources */,
+				0146FED41961594800ED58E6 /* NSDate+TPCategory.m in Sources */,
 				0189C4FD192F3D7E002ED63A /* AFURLResponseSerialization.m in Sources */,
 				0189C4FB192F3D7E002ED63A /* AFURLConnectionOperation.m in Sources */,
 				0189C4D5192F2273002ED63A /* CustomizeImageView.m in Sources */,
@@ -1295,6 +1361,7 @@
 				01C9417B192C9D530044AA2B /* PushResult.m in Sources */,
 				0189C4D2192EFD7A002ED63A /* MetaDataTable.m in Sources */,
 				01C94142192C31EB0044AA2B /* NewsViewController.m in Sources */,
+				0146FED119614B8F00ED58E6 /* PreviewDataSource.m in Sources */,
 				01C94174192C9CF00044AA2B /* PushViewController.m in Sources */,
 				01C9412F192B470C0044AA2B /* TKJobCell.m in Sources */,
 				017D2F051925B44E00E1CC80 /* TKMenuItemCell.m in Sources */,
@@ -1321,6 +1388,7 @@
 				01C94118192B34060044AA2B /* BasicMetaDataController.m in Sources */,
 				01E8E9251924AF680071BC5D /* BasicViewController.m in Sources */,
 				0150B948192619B3005DEAAC /* AdminURL.m in Sources */,
+				0146FECB1961478E00ED58E6 /* MovieStoreHelper.m in Sources */,
 				01C94191192C9E5B0044AA2B /* UIActionSheet+Blocks.m in Sources */,
 				01C940E9192B00DA0044AA2B /* ASIDataDecompressor.m in Sources */,
 				01C9416F192C7A650044AA2B /* HotMovieView.m in Sources */,
@@ -1336,8 +1404,11 @@
 				01C9412C192B41AE0044AA2B /* JobAreaList.m in Sources */,
 				0189C518192F3D9B002ED63A /* FSBasicImage.m in Sources */,
 				01C94157192C46350044AA2B /* NewsDetailViewController.m in Sources */,
+				0146FEC8196142FE00ED58E6 /* OpenHttpFileViewController.m in Sources */,
 				0189C4F7192F3D7E002ED63A /* AFHTTPRequestOperationManager.m in Sources */,
 				01C940FD192B01330044AA2B /* ASIServiceHTTPRequest.m in Sources */,
+				0146FEC0196142F200ED58E6 /* PreviewFileManager.m in Sources */,
+				0146FEC2196142F300ED58E6 /* LLFileVC.m in Sources */,
 				01C94194192C9E5B0044AA2B /* AlertHelper.m in Sources */,
 				01C9415C192C52170044AA2B /* CCSegmentedControl.m in Sources */,
 				01C94178192C9D420044AA2B /* CacheHelper.m in Sources */,
@@ -1362,6 +1433,7 @@
 				0189C4CF192EF306002ED63A /* MetaDataBar.m in Sources */,
 				01C940ED192B00DA0044AA2B /* ASIInputStream.m in Sources */,
 				0189C4FA192F3D7E002ED63A /* AFSecurityPolicy.m in Sources */,
+				0146FEB9196142E400ED58E6 /* FileHttpRequest.m in Sources */,
 				01C940C8192AE2230044AA2B /* SearchMetaDataHelper.m in Sources */,
 				01C94193192C9E5B0044AA2B /* RIButtonItem.m in Sources */,
 				01C940EA192B00DA0044AA2B /* ASIDownloadCache.m in Sources */,
@@ -1448,7 +1520,7 @@
 					"/Applications/Xcode\\ 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
 					/usr/include/libxml2,
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "CE0F8A35-B83F-4EA0-9508-C7467501BCEF";
 				SDKROOT = iphoneos;
@@ -1487,7 +1559,7 @@
 					"/Applications/Xcode\\ 2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
 					/usr/include/libxml2,
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PROVISIONING_PROFILE = "CE0F8A35-B83F-4EA0-9508-C7467501BCEF";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
