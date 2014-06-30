@@ -144,7 +144,7 @@
 
 //< Optional
 - (CGFloat)itemWidthAtIndex:(NSUInteger)index inMenuBar:(LightMenuBar *)menuBar {
-    return 320.0f/2;
+    return DeviceWidth/2;
 }
 /****************************************************************************/
 //< For Background Area

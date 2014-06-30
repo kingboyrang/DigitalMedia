@@ -30,9 +30,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    CGFloat h=DeviceIsPad?256.0f:128.0f;
     CGRect r=self.view.bounds;
-    r.origin.y=DeviceIsPad?50:20;
-    r.size.height-=[self topHeight];
+    r.size.height=h*2+30*2;
+    //r.origin.y=DeviceIsPad?50:20;
+    r.origin.y=(self.view.bounds.size.height-[self topHeight]-r.size.height-30)/2;
     _menuTable=[[UITableView alloc] initWithFrame:r style:UITableViewStylePlain];
     _menuTable.bounces=NO;
     _menuTable.dataSource=self;
