@@ -29,7 +29,7 @@
     
     UILabel *labTitle=[[UILabel alloc] initWithFrame:CGRectZero];
     labTitle.backgroundColor=[UIColor clearColor];
-    labTitle.font=defaultBDeviceFont;
+    labTitle.font=[UIFont fontWithName:defaultDeviceFontName size:20];
     labTitle.textAlignment=NSTextAlignmentCenter;
     labTitle.numberOfLines=0;
     labTitle.lineBreakMode=NSLineBreakByWordWrapping;
@@ -50,7 +50,7 @@
     UITextView *textView=[[UITextView alloc] initWithFrame:r];
     textView.editable=NO;
     textView.text=self.Entity.Content;
-    textView.font=[UIFont fontWithName:defaultSDeviceFontName size:16];
+    textView.font=[UIFont fontWithName:defaultSDeviceFontName size:19];
     [self.view addSubview:textView];
 }
 
@@ -59,16 +59,4 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

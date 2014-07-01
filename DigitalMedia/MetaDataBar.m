@@ -29,9 +29,9 @@
         [_leftButton setImage:img forState:UIControlStateNormal];
         [self addSubview:_leftButton];
         
-        UIImage *img1=[img imageRotatedByDegrees:180];
+        UIImage *img1=[UIImage imageNamed:@"arrowRight.png"];
         _rightButton=[UIButton buttonWithType:UIButtonTypeCustom];
-        _rightButton.frame=CGRectMake(frame.size.width-img.size.width-btnLeft,(frame.size.height-img.size.height)/2, img.size.width, img.size.height);
+        _rightButton.frame=CGRectMake(frame.size.width-img.size.width-btnLeft,(frame.size.height-img1.size.height)/2, img1.size.width, img1.size.height);
         [_rightButton setImage:img1 forState:UIControlStateNormal];
         [self addSubview:_rightButton];
         
@@ -65,7 +65,7 @@
         _lineLab=[[UILabel alloc] initWithFrame:CGRectMake((frame.size.width-2)/2,(frame.size.height-h)/2, 2, h)];
         _lineLab.backgroundColor=[UIColor whiteColor];
         [self addSubview:_lineLab];
-        //我对那些陪训机构比较反感，打着招人的旗号，忽悠人去陪训
+        
     }
     return self;
 }

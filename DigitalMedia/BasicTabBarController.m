@@ -13,6 +13,7 @@
 #import "FavoritesViewController.h"
 #import "RelevantViewController.h"
 #import "AboutUsViewController.h"
+#import "PushDetailViewController.h"
 @interface BasicTabBarController ()
 
 @end
@@ -107,8 +108,21 @@
     //[self setViewControllers:[NSArray arrayWithObjects:nav1,nav2,nav3,nav4,nav5, nil]];
     //self.selectedIndex=0;
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotifice:) name:@"pushDetail" object:nil];
 }
-
+-(void)receiveNotifice:(NSNotification*)notice{
+    NSDictionary *dic=[notice userInfo];
+    
+    int selectIndex=self.selectedIndex;
+    NSArray *arr=self.viewControllers;
+    UINavigationController *nav=(UINavigationController*)[arr objectAtIndex:selectIndex];
+    if (nav) {
+        PushResult *entity=[PushResult PushResultWithGuid:[dic objectForKey:@"guid"]];
+        PushDetailViewController *pushDetail=[[PushDetailViewController alloc] init];
+        pushDetail.Entity=entity;
+        [nav pushViewController:pushDetail animated:YES];
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

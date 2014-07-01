@@ -26,6 +26,12 @@
     self.window.rootViewController=tabbar;
     [self.window makeKeyAndVisible];
     
+    //处理远程通知
+    UILocalNotification *localNotif=[launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (localNotif) {
+        application.applicationIconBadgeNumber-=1;
+        [self pushHandler:localNotif.userInfo];
+    }
     return YES;
 }
 							
@@ -77,7 +83,7 @@
 //获取接收的推播信息
 - (void) application:(UIApplication *) app didReceiveRemoteNotification:(NSDictionary *) userInfo
 {
-    //app.applicationIconBadgeNumber=0;
+    app.applicationIconBadgeNumber-=1;
     [self pushHandler:userInfo];
 }
 
