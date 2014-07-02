@@ -17,19 +17,19 @@
 
 #define DataWebPath [[NSBundle mainBundle] pathForResource:@"Config" ofType:@"plist"]
 #define DataServicesSource [NSArray arrayWithContentsOfFile:DataWebPath]
-//#define DataCaseUrlPre [DataServicesSource objectAtIndex:0]
-//#define DataPushUrlPre [DataServicesSource objectAtIndex:1]
+#define DataCaseUrlPre [DataServicesSource objectAtIndex:0]
+#define DataPushUrlPre [DataServicesSource objectAtIndex:1]
 
-#define DataCaseUrlPre @"http://192.168.123.150/dmc/"
-#define DataPushUrlPre @"http://192.168.123.150/Pushs.Admin/"
+//#define DataCaseUrlPre @"http://192.168.123.150/dmc/"
+//#define DataPushUrlPre @"http://192.168.123.150/Pushs.Admin/"
 
 //测试
 #define defaultWebServiceUrl [NSString stringWithFormat:@"%@MDC.asmx",DataCaseUrlPre]
 #define defaultWebServiceNameSpace @"http://tempuri.org/"
 //推播信息webservice
 #define PushWebServiceUrl [NSString stringWithFormat:@"%@WebServices/Push.asmx",DataPushUrlPre]
-//#define PushWebServiceNameSpace @"http://CIRMSG.e-land.gov.tw/"
-#define PushWebServiceNameSpace @"http://tempuri.org/"
+#define PushWebServiceNameSpace @"http://CIRMSG.e-land.gov.tw/"
+//#define PushWebServiceNameSpace @"http://tempuri.org/"
 
 
 //获取设备的物理大小
