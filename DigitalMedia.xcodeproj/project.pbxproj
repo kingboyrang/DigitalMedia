@@ -43,6 +43,7 @@
 		0150B94B19261E98005DEAAC /* PushToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 0150B94A19261E98005DEAAC /* PushToken.m */; };
 		0150B94E192621EC005DEAAC /* ApnsToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 0150B94D192621EC005DEAAC /* ApnsToken.m */; };
 		0150B9511926231D005DEAAC /* FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0150B9501926231D005DEAAC /* FileHelper.m */; };
+		0174F0D51989D609002C2A43 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 0174F0D41989D609002C2A43 /* iTunesArtwork */; };
 		017D2EF91925B1BC00E1CC80 /* UIButton+TPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 017D2EF81925B1BC00E1CC80 /* UIButton+TPCategory.m */; };
 		017D2F051925B44E00E1CC80 /* TKMenuItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 017D2F041925B44E00E1CC80 /* TKMenuItemCell.m */; };
 		017D2F081925C3B000E1CC80 /* OrganViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 017D2F071925C3AF00E1CC80 /* OrganViewController.m */; };
@@ -240,6 +241,7 @@
 		0150B94D192621EC005DEAAC /* ApnsToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApnsToken.m; sourceTree = "<group>"; };
 		0150B94F1926231D005DEAAC /* FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelper.h; sourceTree = "<group>"; };
 		0150B9501926231D005DEAAC /* FileHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHelper.m; sourceTree = "<group>"; };
+		0174F0D41989D609002C2A43 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		017D2EF71925B1BC00E1CC80 /* UIButton+TPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+TPCategory.h"; sourceTree = "<group>"; };
 		017D2EF81925B1BC00E1CC80 /* UIButton+TPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+TPCategory.m"; sourceTree = "<group>"; };
 		017D2F031925B44E00E1CC80 /* TKMenuItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKMenuItemCell.h; sourceTree = "<group>"; };
@@ -1030,6 +1032,7 @@
 		01E8E8E51924AECD0071BC5D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0174F0D41989D609002C2A43 /* iTunesArtwork */,
 				0150B8D61925FAC7005DEAAC /* Source */,
 				01E8E94C1924C19A0071BC5D /* navbg_ipad@2x.png */,
 				01E8E9481924BFD50071BC5D /* navbg_ipad.png */,
@@ -1283,6 +1286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01E8E9471924BD800071BC5D /* navbg_ios7@2x.png in Resources */,
+				0174F0D51989D609002C2A43 /* iTunesArtwork in Resources */,
 				0150B934192616A3005DEAAC /* happyType.plist in Resources */,
 				01E8E8FA1924AECD0071BC5D /* Images.xcassets in Resources */,
 				0150B8FB1926102A005DEAAC /* blueArrow@2x.png in Resources */,
