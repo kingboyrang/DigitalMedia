@@ -125,7 +125,7 @@
         openPreview.fileUrl=url;
         openPreview.fileDownLoadName=fileName;
         openPreview.fileType=self.movieType;
-        openPreview.title=fileName;
+        //openPreview.title=fileName;
         [nav pushViewController:openPreview animated:YES];
     }else{
       LLFileVC *previewController=[[LLFileVC alloc] initWithURL:[NSURL fileURLWithPath:url]];

@@ -1580,14 +1580,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: jing li (U4XXAX975U)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jing li (U4XXAX975U)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yanling zhang (C8684SUZ22)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yanling zhang (C8684SUZ22)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DigitalMedia/DigitalMedia-Prefix.pch";
 				INFOPLIST_FILE = "DigitalMedia/DigitalMedia-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7ade60d2-35a2-4511-ac24-3dca48182b53";
+				PROVISIONING_PROFILE = "f179633e-0803-4ba2-a651-b70230a5dd9f";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1597,14 +1597,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: jing li (U4XXAX975U)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jing li (U4XXAX975U)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yanling zhang (C8684SUZ22)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yanling zhang (C8684SUZ22)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DigitalMedia/DigitalMedia-Prefix.pch";
 				INFOPLIST_FILE = "DigitalMedia/DigitalMedia-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7ade60d2-35a2-4511-ac24-3dca48182b53";
+				PROVISIONING_PROFILE = "f179633e-0803-4ba2-a651-b70230a5dd9f";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

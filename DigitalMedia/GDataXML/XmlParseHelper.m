@@ -27,7 +27,7 @@
 @synthesize xmlNode=_xmlNode;
 -(void)dealloc{
     [super dealloc];
-    [_document release];
+    //[_document release];
 }
 -(id)initWithData:(id)xml{
     if (self=[super init]) {
