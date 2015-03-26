@@ -39,6 +39,13 @@
     _movieTable.delegate=self;
     _movieTable.dataSource=self;
     [self.view addSubview:_movieTable];
+    
+    //文件下载完成更新通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveUpdateFinish) name:kNotificationMovieFinishedUpdate object:nil];
+}
+
+- (void)receiveUpdateFinish{
+    [self.movieTable reloadData];
 }
 //編輯
 - (void)buttonEditClick:(UIButton*)btn{

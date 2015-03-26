@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#define kNotificationMovieFinishedUpdate @"kNotificationMovieFinishedUpdate"
+
 @class MovieStore;
 @interface MovieStoreHelper : NSObject
 //取得收藏影音列表

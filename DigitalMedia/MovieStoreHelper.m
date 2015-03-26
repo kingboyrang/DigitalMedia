@@ -41,6 +41,8 @@
         //新增
         [self.movieStores insertObject:entity atIndex:0];
         [self saveWithSources:self.movieStores];
+        //发通知
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationMovieFinishedUpdate object:nil];
     }
 }
 - (void)deleteStoreWithRow:(NSInteger)index{
